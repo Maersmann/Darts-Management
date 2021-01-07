@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Darts.Data.Repository.Base
+namespace Darts.Data.Infrastructure.Base
 {
     public class BaseRepository
     {

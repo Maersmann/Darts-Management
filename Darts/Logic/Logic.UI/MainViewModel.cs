@@ -12,7 +12,7 @@ namespace Darts.Logic.UI
     {
         public MainViewModel()
         {
-            Title = "Aktienübersicht";
+            Title = "Darts";
             OpenConnectionCommand = new RelayCommand(() => ExecuteOpenConnectionCommand());
         }
 

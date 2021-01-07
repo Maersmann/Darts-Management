@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Darts.Data.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Darts.Data.Infrastructure
     public class RepositoryBase : DbContext
     {
 
+        public DbSet<Spieler> Spieler { get; set; }
 
         public RepositoryBase() : base() { this.Database.Migrate(); }
 
