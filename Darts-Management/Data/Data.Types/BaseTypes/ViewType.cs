@@ -8,6 +8,6 @@ namespace Darts.Data.Types.BaseTypes
 {
     public enum ViewType
     {
-
+        SpielerUebersicht
     }
 }

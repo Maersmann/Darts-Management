@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Vereinsverwaltung.UI.Desktop.BaseViews
+namespace UI.Desktop.BaseViews
 {
     public class StammdatenView : Window
     {

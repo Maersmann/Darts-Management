@@ -1,5 +1,6 @@
 ﻿using Darts.Data.Model;
 using Darts.Data.Model.KonvertierungEntitys;
+using Darts.Data.Model.SpielerEntitys;
 using Darts.Data.Model.UserEntitys;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,6 +15,7 @@ namespace Darts.Data.Infrastructure
         //public DbSet<Spieler> Spieler { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Konvertierung> Konvertierungen { get; set; }
+        public DbSet<Spieler> Spieler { get; set; }
 
         public Context() : base() { this.Database.Migrate(); }
 

@@ -15,6 +15,7 @@
 using CommonServiceLocator;
 using Darts.Logic.UI.KonfigurationViewModels;
 using Darts.Logic.UI.OptionenViewModels;
+using Darts.Logic.UI.SpielerViewModels;
 using Darts.Logic.UI.UtilsViewModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -51,6 +52,8 @@ namespace Darts.Logic.UI
         public StartingProgrammViewModel StartingProgramm => new StartingProgrammViewModel();
         public KonfigruationViewModel KonfigruationViewModel => new KonfigruationViewModel();
         public DBSettingsViewModel DBSettings => new DBSettingsViewModel();
+        public SpielerUebersichtViewModel SpielerUebersicht => new SpielerUebersichtViewModel();
+        public SpielerStammdatenViewModel SpielerStammdaten => new SpielerStammdatenViewModel();
 
 
         public static void Cleanup()

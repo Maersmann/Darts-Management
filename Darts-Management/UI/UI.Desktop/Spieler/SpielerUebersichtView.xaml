@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="UI.Desktop.Spieler.SpielerUebersichtView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Desktop.Spieler"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400" MinWidth="650px"         
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             DataContext="{Binding SpielerUebersicht, Source={StaticResource Locator}}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25px"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70px" />
+            <RowDefinition Height="45px" />
+            <RowDefinition >
+                <RowDefinition.Style>
+                    <Style TargetType="{x:Type RowDefinition}">
+                        <Setter Property="Height" Value="5" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RequestIsWorking}" Value="false">
+                                <Setter Property="Height" Value="0" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </RowDefinition.Style>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card  Grid.Row="0" Background="{Binding Mode=OneWay, Source={StaticResource brushHeader}}">
+            <Label HorizontalAlignment="Center" Width="auto" Content="{Binding Title, Mode=OneWay}"/>
+        </materialDesign:Card>
+
+        <DataGrid Grid.Row="1" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto" />
+                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding NeuCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand">
+                    <Image Source="/UI.Desktop;component/Resources/add.png" Stretch="None"/>
+                </Button>
+                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding BearbeitenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Cursor="Hand">
+                    <Image Source="/UI.Desktop;component/Resources/bearbeiten.png" Stretch="None"/>
+                </Button>
+                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,145,10" Cursor="Hand" >
+                    <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <materialDesign:Card  Grid.Row="3">
+            <DockPanel  LastChildFill="False">
+
+            </DockPanel>
+        </materialDesign:Card>
+
+        <ProgressBar Grid.Row="4" Minimum="0" Maximum="100"  Height="5" IsIndeterminate="True" />
+
+    </Grid>
+</UserControl>

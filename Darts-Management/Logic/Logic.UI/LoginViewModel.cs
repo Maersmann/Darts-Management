@@ -1,5 +1,6 @@
 ﻿using Darts.Data.Infrastructure;
 using Darts.Data.Model.UserEntitys.DTOs;
+using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.UserCore;
 using Darts.Logic.Core.Validierung;
 using Darts.Logic.Messages.BaseMessages;
@@ -20,9 +21,11 @@ namespace Darts.Logic.UI
 {
     public class LoginViewModel : ViewModelValidate
     {
-        readonly AuthenticateModel authenticate;
+        private readonly AuthenticateModel authenticate;
+        private bool loginErfolgreich;
         public LoginViewModel()
         {
+            loginErfolgreich = false;
             Title = "Anmeldung";
             LoginCommand = new DelegateCommand(ExecuteLoginCommand, CanExecuteCommand);
             PasswordCommand = new RelayCommand<PasswordBox>(ExecutePasswordChangedCommand);
@@ -34,19 +37,19 @@ namespace Darts.Logic.UI
 
         private void ExecuteLoginCommand()
         {
-            var Erfolgreich = new UserAPI().Authenticate(new AuthenticateDTO
+            loginErfolgreich = new UserAPI().Authenticate(new AuthenticateDTO
             {
                 Password = authenticate.Password,
                 Username = authenticate.Username
             });
 
-            if (!Erfolgreich)
+            if (!loginErfolgreich)
             {
                 SendExceptionMessage("User oder Passwort ist falsch");
             }
             else
             {
-                //Messenger.Default.Send(new OpenViewMessage { ViewType = ViewType.viewWertpapierUebersicht });
+                Messenger.Default.Send(new OpenViewMessage { ViewType = ViewType.SpielerUebersicht });
                 Messenger.Default.Send(new CloseViewMessage(), "Login");
             }
         }
@@ -59,7 +62,8 @@ namespace Darts.Logic.UI
         protected override void ExecuteCleanUpCommand()
         {
             base.ExecuteCleanUpCommand();
-            Messenger.Default.Send(new CloseApplicationMessage());
+            if (!loginErfolgreich)
+                Messenger.Default.Send(new CloseApplicationMessage());
         }
 
 

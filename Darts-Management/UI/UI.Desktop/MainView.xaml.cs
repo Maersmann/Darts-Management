@@ -16,9 +16,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Desktop.Spieler;
 using Vereinsverwaltung.UI.Desktop;
-using Vereinsverwaltung.UI.Desktop.BaseViews;
 using Vereinsverwaltung.UI.Desktop.Konfigruation;
+using UI.Desktop.BaseViews;
 
 namespace Darts.UI.Desktop
 {
@@ -61,17 +62,16 @@ namespace Darts.UI.Desktop
         {
             switch (inType)
             {
-               /*
-                case ViewType.viewSparplanAusfuehrenUebersichtCommand:
-                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(SparplanAusfuehrenPage)))
+               
+                case ViewType.SpielerUebersicht:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(SpielerUebersichtView)))
                     {
-                        _ = Container.NavigationService.Navigate(new SparplanAusfuehrenPage());
+                        _ = Container.NavigationService.Navigate(new SpielerUebersichtView());
                     }
                     break;
                 default:
                     break;
 
-                */
             }
         }
 
@@ -81,10 +81,11 @@ namespace Darts.UI.Desktop
             StammdatenView view = null;
             switch (m.Stammdaten)
             {
-                /*
+                case StammdatenTypes.spieler:
+                    view = new SpielerStammdatenView();
+                    break;
                 default:
                     break;
-                */
             }
 
             if (view.DataContext is IViewModelStammdaten model)
@@ -95,7 +96,7 @@ namespace Darts.UI.Desktop
                 }
 
             }
-            //view.Owner = this;
+            view.Owner = this;
             _ = view.ShowDialog();
         }
 

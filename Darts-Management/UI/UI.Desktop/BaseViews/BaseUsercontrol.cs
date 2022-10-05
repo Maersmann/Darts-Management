@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Vereinsverwaltung.UI.Desktop.Utils;
 
-namespace Vereinsverwaltung.UI.Desktop.BaseViews
+namespace UI.Desktop.BaseViews
 {
     public class BaseUsercontrol : UserControl
     {

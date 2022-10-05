@@ -8,5 +8,6 @@ namespace Darts.Data.Types.BaseTypes
 {
     public enum StammdatenTypes
     {
+        spieler
     }
 }

@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Darts.Data.Infrastructure;
 using Darts.Logic.Core.OptionenCore;
 using Darts.Logic.Messages.BaseMessages;
+using Darts.Data.Types.BaseTypes;
 
 namespace Darts.Logic.UI
 {
@@ -20,10 +21,17 @@ namespace Darts.Logic.UI
             GlobalVariables.DB_Password = "";
             GlobalVariables.DB_User = "";
             OpenStartingViewCommand = new RelayCommand(() => ExecuteOpenStartingViewCommand());
+            OpenSpielerUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.SpielerUebersicht));
         }
 
 
         public ICommand OpenStartingViewCommand { get; private set; }
+        public ICommand OpenSpielerUebersichtCommand { get; private set; }
+
+        private void ExecuteOpenViewCommand(ViewType viewType)
+        {
+            Messenger.Default.Send(new OpenViewMessage { ViewType = viewType });
+        }
 
         private void ExecuteOpenStartingViewCommand()
         {

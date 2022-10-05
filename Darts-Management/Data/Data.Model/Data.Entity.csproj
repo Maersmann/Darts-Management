@@ -48,6 +48,7 @@
     <Compile Include="Base\DAO.cs" />
     <Compile Include="KonvertierungEntitys\Konvertierung.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerEntitys\Spieler.cs" />
     <Compile Include="UserEntitys\DTOs\AuthenticateDTO.cs" />
     <Compile Include="UserEntitys\DTOs\RegisterUserDTO.cs" />
     <Compile Include="UserEntitys\DTOs\UserDTO.cs" />

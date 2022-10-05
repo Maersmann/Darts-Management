@@ -24,11 +24,13 @@ namespace Darts.Logic.UI.BaseViewModels
             NeuCommand = new RelayCommand(() => ExecuteNeuCommand());
             BearbeitenCommand = new DelegateCommand(ExecuteBearbeitenCommand, CanExecuteCommand);
             itemList = new ObservableCollection<T1>();
+            LoadData();
         }
 
 
         protected virtual int GetID() { return 0; }
         protected virtual T2 GetStammdatenTyp() { throw new NotImplementedException(); }
+        protected virtual void LoadData() { throw new NotImplementedException(); }
 
         #region Bindings
 
@@ -71,14 +73,17 @@ namespace Darts.Logic.UI.BaseViewModels
         {
             ItemList.Remove(SelectedItem);
             RaisePropertyChanged("ItemList");
+            LoadData();
         }
         protected virtual void ExecuteBearbeitenCommand()
         {
             Messenger.Default.Send(new BaseStammdatenMessage<T2> { State = State.Bearbeiten, ID = GetID(), Stammdaten = GetStammdatenTyp() });
+            LoadData();
         }
         protected virtual void ExecuteNeuCommand()
         {
             Messenger.Default.Send(new BaseStammdatenMessage<T2> { State = State.Neu, ID = null, Stammdaten = GetStammdatenTyp() });
+            LoadData();
         }
 
         #endregion
