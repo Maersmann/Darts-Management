@@ -22,11 +22,13 @@ namespace Darts.Logic.UI
             GlobalVariables.DB_User = "";
             OpenStartingViewCommand = new RelayCommand(() => ExecuteOpenStartingViewCommand());
             OpenSpielerUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.SpielerUebersicht));
+            OpenAktuellesTrainingCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AktuellesTraining));
         }
 
 
         public ICommand OpenStartingViewCommand { get; private set; }
         public ICommand OpenSpielerUebersichtCommand { get; private set; }
+        public ICommand OpenAktuellesTrainingCommand { get; private set; }
 
         private void ExecuteOpenViewCommand(ViewType viewType)
         {

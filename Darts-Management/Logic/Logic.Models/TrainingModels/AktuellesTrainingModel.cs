@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Darts.Data.Types.BaseTypes
+namespace Darts.Logic.Models.TrainingModels
 {
-    public enum ViewType
+    public class AktuellesTrainingModel
     {
-        SpielerUebersicht,
-        AktuellesTraining
+
     }
 }

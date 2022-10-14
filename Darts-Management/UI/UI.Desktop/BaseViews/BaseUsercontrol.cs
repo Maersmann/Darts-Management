@@ -27,7 +27,11 @@ namespace UI.Desktop.BaseViews
 
         private void ReceiveOpenBestaetigungViewMessage(OpenBestaetigungViewMessage m)
         {
-            var Bestaetigung = new BestaetigungView();
+            var Bestaetigung = new BestaetigungView
+            {
+                Owner = Application.Current.MainWindow
+            };
+
             if (Bestaetigung.DataContext is BestaetigungViewModel model)
             {
                 model.Beschreibung = m.Beschreibung;

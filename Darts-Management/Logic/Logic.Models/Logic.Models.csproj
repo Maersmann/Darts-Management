@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpielerModels\SpielerStammdatenModel.cs" />
     <Compile Include="SpielerModels\SpielerUebersichtModel.cs" />
+    <Compile Include="TrainingModels\AktuellesTrainingModel.cs" />
     <Compile Include="UserModels\AuthenticateModel.cs" />
   </ItemGroup>
   <ItemGroup>

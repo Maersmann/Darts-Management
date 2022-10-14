@@ -213,6 +213,7 @@
     <Compile Include="SpielerViewModels\SpielerStammdatenViewModel.cs" />
     <Compile Include="SpielerViewModels\SpielerUebersichtViewModel.cs" />
     <Compile Include="StartingProgrammViewModel.cs" />
+    <Compile Include="TrainingViewModels\AktuellesTrainingViewModel.cs" />
     <Compile Include="UtilsViewModels\BestaetigungViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>

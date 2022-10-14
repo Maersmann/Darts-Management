@@ -24,13 +24,17 @@ namespace Darts.Logic.UI.BaseViewModels
             NeuCommand = new RelayCommand(() => ExecuteNeuCommand());
             BearbeitenCommand = new DelegateCommand(ExecuteBearbeitenCommand, CanExecuteCommand);
             itemList = new ObservableCollection<T1>();
-            LoadData();
+            if (LoadDataBeimCreateAusfuehren)
+            {
+                LoadData();
+            }
         }
 
 
         protected virtual int GetID() { return 0; }
         protected virtual T2 GetStammdatenTyp() { throw new NotImplementedException(); }
         protected virtual void LoadData() { throw new NotImplementedException(); }
+        protected virtual bool LoadDataBeimCreateAusfuehren => true;
 
         #region Bindings
 

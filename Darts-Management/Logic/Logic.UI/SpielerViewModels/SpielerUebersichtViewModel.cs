@@ -1,7 +1,9 @@
 ﻿using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.SpielerCore;
+using Darts.Logic.Core.TrainingCore;
 using Darts.Logic.Models.SpielerModels;
 using Darts.Logic.UI.BaseViewModels;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,7 @@ namespace Darts.Logic.UI.SpielerViewModels
 
         protected override int GetID() => SelectedItem.ID;
         protected override StammdatenTypes GetStammdatenTyp() => StammdatenTypes.spieler;
+
 
         protected override void LoadData()
         {

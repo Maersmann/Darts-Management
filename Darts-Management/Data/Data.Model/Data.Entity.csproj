@@ -49,6 +49,7 @@
     <Compile Include="KonvertierungEntitys\Konvertierung.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpielerEntitys\Spieler.cs" />
+    <Compile Include="TrainingEntitys\Training.cs" />
     <Compile Include="UserEntitys\DTOs\AuthenticateDTO.cs" />
     <Compile Include="UserEntitys\DTOs\RegisterUserDTO.cs" />
     <Compile Include="UserEntitys\DTOs\UserDTO.cs" />
@@ -60,5 +61,6 @@
       <Name>Data.Types</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

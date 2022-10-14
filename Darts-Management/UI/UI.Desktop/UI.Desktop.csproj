@@ -224,6 +224,9 @@
     <Compile Include="StartingProgrammView.xaml.cs">
       <DependentUpon>StartingProgrammView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Training\AktuellesTrainingView.xaml.cs">
+      <DependentUpon>AktuellesTrainingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\BestaetigungView.xaml.cs">
       <DependentUpon>BestaetigungView.xaml</DependentUpon>
     </Compile>
@@ -270,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StartingProgrammView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Training\AktuellesTrainingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

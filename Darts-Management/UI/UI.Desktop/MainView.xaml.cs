@@ -20,6 +20,8 @@ using UI.Desktop.Spieler;
 using Vereinsverwaltung.UI.Desktop;
 using Vereinsverwaltung.UI.Desktop.Konfigruation;
 using UI.Desktop.BaseViews;
+using UI.Desktop.Training;
+using Darts.Logic.UI.TrainingViewModels;
 
 namespace Darts.UI.Desktop
 {
@@ -62,11 +64,22 @@ namespace Darts.UI.Desktop
         {
             switch (inType)
             {
-               
+
                 case ViewType.SpielerUebersicht:
                     if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(SpielerUebersichtView)))
                     {
                         _ = Container.NavigationService.Navigate(new SpielerUebersichtView());
+                    }
+                    break;
+                case ViewType.AktuellesTraining:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AktuellesTrainingView)))
+                    {
+                        var view = new AktuellesTrainingView();
+                            _ = Container.NavigationService.Navigate(view);
+                        if (view.DataContext is AktuellesTrainingViewModel model)
+                        {
+                            model.CheckAktuellesTraining();
+                        }
                     }
                     break;
                 default:

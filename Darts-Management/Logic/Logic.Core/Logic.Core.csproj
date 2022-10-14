@@ -127,6 +127,7 @@
     <Compile Include="OptionenCore\BackendLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpielerCore\SpielerService.cs" />
+    <Compile Include="TrainingCore\TrainingService.cs" />
     <Compile Include="UserCore\UserAPI.cs" />
     <Compile Include="UserCore\UserService.cs" />
     <Compile Include="Validierung\BaseValidierung.cs" />
