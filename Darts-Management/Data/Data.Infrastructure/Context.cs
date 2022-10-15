@@ -19,6 +19,7 @@ namespace Darts.Data.Infrastructure
         public DbSet<Spieler> Spieler { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<TrainingSpieler> TrainingSpielers { get; set; }
+        public DbSet<Bestleistung> Bestleistungen { get; set; }
 
         public Context() : base() { Database.Migrate(); }
 

@@ -48,6 +48,7 @@
     <Compile Include="Base\DAO.cs" />
     <Compile Include="KonvertierungEntitys\Konvertierung.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerEntitys\Bestleistung.cs" />
     <Compile Include="SpielerEntitys\Spieler.cs" />
     <Compile Include="TrainingEntitys\Training.cs" />
     <Compile Include="TrainingEntitys\TrainingSpieler.cs" />

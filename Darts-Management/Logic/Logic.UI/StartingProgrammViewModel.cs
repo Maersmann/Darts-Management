@@ -15,8 +15,10 @@ namespace Darts.Logic.UI
 {
     public class StartingProgrammViewModel : ViewModelBasis
     {
+        private bool ladeVorgangBeendet;
         public StartingProgrammViewModel()
         {
+            ladeVorgangBeendet = false;
             Title = "Loading...";
             CheckServerIsOnlineCommand = new RelayCommand(() => ExecuteCheckServerIsOnlineCommand());
         }
@@ -28,6 +30,7 @@ namespace Darts.Logic.UI
                 new DBHelper().CheckServerIsOnline();
             });
 
+            ladeVorgangBeendet = true;
             Messenger.Default.Send(new CloseViewMessage(), "StartingProgramm");
             if (GlobalVariables.DBIstErreichbar)
             {
@@ -40,6 +43,13 @@ namespace Darts.Logic.UI
         }
 
         public ICommand CheckServerIsOnlineCommand { get; private set; }
+
+        protected override void ExecuteCleanUpCommand()
+        {
+            base.ExecuteCleanUpCommand();
+            if (!ladeVorgangBeendet)
+                Messenger.Default.Send(new CloseApplicationMessage());
+        }
 
 
     }

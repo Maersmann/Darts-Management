@@ -44,9 +44,11 @@
     <Compile Include="AuswahlModels\SpielerAuswahlModel.cs" />
     <Compile Include="OptionenModels\OPSettingsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerModels\BestleistungEintragenModel.cs" />
     <Compile Include="SpielerModels\SpielerStammdatenModel.cs" />
     <Compile Include="SpielerModels\SpielerUebersichtModel.cs" />
     <Compile Include="TrainingModels\AktuellesTrainingModel.cs" />
+    <Compile Include="TrainingModels\AktuellesTrainingSpielerBestleistungModel.cs" />
     <Compile Include="UserModels\AuthenticateModel.cs" />
   </ItemGroup>
   <ItemGroup>

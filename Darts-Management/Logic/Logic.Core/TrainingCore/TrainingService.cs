@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Darts.Data.Model.TrainingEntitys;
+using Darts.Data.Infrastructure.SpielerRepositorys;
+using Darts.Logic.Core.SpielerCore.Exceptions;
 
 namespace Darts.Logic.Core.TrainingCore
 {
@@ -11,10 +13,12 @@ namespace Darts.Logic.Core.TrainingCore
     {
         private readonly TrainingRepository repo;
         private readonly TrainingSpielerRepository trainingSpielerRepository;
+        private readonly BestleistungRepository besteleistungRepository;
 
         public TrainingService()
         {
             repo = new TrainingRepository();
+            besteleistungRepository = new BestleistungRepository();
             trainingSpielerRepository = new TrainingSpielerRepository();
         }
 
@@ -48,6 +52,10 @@ namespace Darts.Logic.Core.TrainingCore
 
         public void EntferneSpieler(int trainingSpielerID)
         {
+            if (besteleistungRepository.HatTrainingSpielerEinEintrag(trainingSpielerID))
+            {
+                throw new TrainingSpielerHatBestleistungException();
+            }
             trainingSpielerRepository.Entfernen(trainingSpielerID);
         }
     }

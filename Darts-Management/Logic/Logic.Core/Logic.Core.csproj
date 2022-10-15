@@ -126,6 +126,8 @@
     <Compile Include="KonvertierungCore\KonvertierungDartUser.cs" />
     <Compile Include="OptionenCore\BackendLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerCore\BestleistungService.cs" />
+    <Compile Include="SpielerCore\Exceptions\TrainingSpielerHatBestleistungException.cs" />
     <Compile Include="SpielerCore\SpielerService.cs" />
     <Compile Include="TrainingCore\TrainingService.cs" />
     <Compile Include="UserCore\UserAPI.cs" />

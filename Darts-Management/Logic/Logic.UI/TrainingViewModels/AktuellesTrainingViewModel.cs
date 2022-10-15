@@ -1,7 +1,9 @@
 ﻿using Darts.Data.Types.BaseTypes;
+using Darts.Logic.Core.SpielerCore.Exceptions;
 using Darts.Logic.Core.TrainingCore;
 using Darts.Logic.Messages.AuswahlMessages;
 using Darts.Logic.Messages.BaseMessages;
+using Darts.Logic.Messages.TrainingMessages;
 using Darts.Logic.Models.TrainingModels;
 using Darts.Logic.UI.BaseViewModels;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -28,6 +30,7 @@ namespace Darts.Logic.UI.TrainingViewModels
             trainingService = new TrainingService();
             aktuellesTraining = new AktuellesTrainingModel();
             BeendeTrainingCommand = new RelayCommand(() => ExecuteBeendeTrainingCommand());
+            TrageBestleistungEinCommand = new RelayCommand(() => ExecuteTrageBesteWerteEinCommand());
         }
 
         public async void CheckAktuellesTraining()
@@ -58,6 +61,7 @@ namespace Darts.Logic.UI.TrainingViewModels
             }
         }
         public ICommand BeendeTrainingCommand { get; set; }
+        public ICommand TrageBestleistungEinCommand { get; set; }
 
         private async void TrainingStartenCommand()
         {
@@ -89,6 +93,10 @@ namespace Darts.Logic.UI.TrainingViewModels
             Messenger.Default.Send(new OpenBestaetigungViewMessage { Beschreibung = "Soll das Training beendet werden?", Command = BeendeTraining }, "AktuellesTraining");
         }
 
+        private void ExecuteTrageBesteWerteEinCommand()
+        {
+            Messenger.Default.Send(new OpenBestleistungMessage { SpielerID = SelectedItem.ID, SpielerTrainingID = SelectedItem.SpielerTrainingID }, "AktuellesTraining");
+        }
 
         protected override bool LoadDataBeimCreateAusfuehren => false;
         protected override void LoadData()
@@ -105,14 +113,23 @@ namespace Darts.Logic.UI.TrainingViewModels
                 {
                     ID = spieler.Spieler.ID,
                     Name = spieler.Spieler.Name,
-                    Vorname = spieler.Spieler.Vorname
+                    Vorname = spieler.Spieler.Vorname,
+                    SpielerTrainingID = spieler.ID
                 });
             });
             ItemList = aktuellesTraining.Spieler;
         }
         protected override void ExecuteEntfernenCommand()
         {
-            trainingService.EntferneSpieler(SelectedItem.ID);
+            try
+            {
+                trainingService.EntferneSpieler(SelectedItem.SpielerTrainingID);
+            }
+            catch (TrainingSpielerHatBestleistungException)
+            {
+                SendExceptionMessage("Spieler besitzt Bestleistungen");
+                return;
+            }         
             base.ExecuteEntfernenCommand();
         }
         protected override void ExecuteNeuCommand()

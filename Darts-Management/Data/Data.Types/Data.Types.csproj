@@ -47,8 +47,11 @@
     <Compile Include="BaseTypes\StammdatenTypes.cs" />
     <Compile Include="BaseTypes\State.cs" />
     <Compile Include="BaseTypes\ViewType.cs" />
+    <Compile Include="Converter\EnumDescriptionTypeConverter.cs" />
     <Compile Include="KonvertierungTypes\KonvertierungType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerTypes\BestleistungHerkunft.cs" />
+    <Compile Include="SpielerTypes\BestleistungArt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

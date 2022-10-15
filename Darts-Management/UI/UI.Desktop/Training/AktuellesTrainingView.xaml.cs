@@ -1,5 +1,7 @@
 ﻿using Darts.Logic.Messages.AuswahlMessages;
+using Darts.Logic.Messages.TrainingMessages;
 using Darts.Logic.UI.AuswahlViewModels;
+using Darts.Logic.UI.TrainingViewModels;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,21 @@ namespace UI.Desktop.Training
             InitializeComponent();
             RegisterMessages("AktuellesTraining");
             Messenger.Default.Register<OpenSpielerAuswahlMessage>(this, "AktuellesTraining", m => ReceiveOpenSpielerAuswahlMessage(m));
+            Messenger.Default.Register<OpenBestleistungMessage>(this, "AktuellesTraining", m => ReceiveOpenBesteWerteMessage(m));
+        }
+
+        private void ReceiveOpenBesteWerteMessage(OpenBestleistungMessage m)
+        {
+            AktuellesTrainingSpielerBestleistungView view = new AktuellesTrainingSpielerBestleistungView
+            {
+                Owner = Application.Current.MainWindow
+            };
+
+            if (view.DataContext is AktuellesTrainingSpielerBestleistungViewModel model)
+            {
+                model.LadeBesteWerteFuerSpieler(m.SpielerID, m.SpielerTrainingID);
+                view.ShowDialog();
+            }
         }
 
         private void ReceiveOpenSpielerAuswahlMessage(OpenSpielerAuswahlMessage m)
@@ -58,6 +75,7 @@ namespace UI.Desktop.Training
         {
             base.Window_Unloaded(sender, e);
             Messenger.Default.Unregister<OpenSpielerAuswahlMessage>(this);
+            Messenger.Default.Unregister<OpenBestleistungMessage>(this);
         }
     }
 }

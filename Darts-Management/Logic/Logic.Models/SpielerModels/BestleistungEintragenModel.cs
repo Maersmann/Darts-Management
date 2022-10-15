@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Darts.Data.Types.BaseTypes
+namespace Darts.Logic.Models.SpielerModels
 {
-    public enum StammdatenTypes
+    public class BestleistungEintragenModel
     {
-        training,
-        spieler,
-        bestleistung
+        public string Value { get; set; }
     }
 }

@@ -211,9 +211,11 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="OptionenViewModels\DBSettingsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerViewModels\BestleistungEintragenViewModel.cs" />
     <Compile Include="SpielerViewModels\SpielerStammdatenViewModel.cs" />
     <Compile Include="SpielerViewModels\SpielerUebersichtViewModel.cs" />
     <Compile Include="StartingProgrammViewModel.cs" />
+    <Compile Include="TrainingViewModels\AktuellesTrainingSpielerBestleistungViewModel.cs" />
     <Compile Include="TrainingViewModels\AktuellesTrainingViewModel.cs" />
     <Compile Include="UtilsViewModels\BestaetigungViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />

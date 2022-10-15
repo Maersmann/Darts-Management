@@ -45,8 +45,15 @@
 
         <DataGrid Grid.Row="2" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto" />
-                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="auto" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto" ElementStyle="{StaticResource verticalCenter}" />
+                <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="auto" ElementStyle="{StaticResource verticalCenter}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Bestleistung" Style="{DynamicResource MaterialDesignOutlinedButton}" Command="{Binding DataContext.TrageBestleistungEinCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

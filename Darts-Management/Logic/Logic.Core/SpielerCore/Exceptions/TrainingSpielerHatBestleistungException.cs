@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Darts.Data.Types.BaseTypes
+namespace Darts.Logic.Core.SpielerCore.Exceptions
 {
-    public enum StammdatenTypes
+    public class TrainingSpielerHatBestleistungException : Exception
     {
-        training,
-        spieler,
-        bestleistung
     }
 }
