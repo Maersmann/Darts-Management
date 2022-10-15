@@ -1,29 +1,34 @@
 ﻿using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.TrainingCore;
+using Darts.Logic.Messages.AuswahlMessages;
 using Darts.Logic.Messages.BaseMessages;
 using Darts.Logic.Models.TrainingModels;
 using Darts.Logic.UI.BaseViewModels;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Darts.Logic.UI.TrainingViewModels
 {
-    public class AktuellesTrainingViewModel : ViewModelUebersicht<AktuellesTrainingModel, StammdatenTypes>
+    public class AktuellesTrainingViewModel : ViewModelUebersicht<AktuellesTrainingSpielerModel, StammdatenTypes>
     {
         private readonly TrainingService trainingService;
         private bool trainingAktiv;
+        private AktuellesTrainingModel aktuellesTraining;
         public AktuellesTrainingViewModel()
         {
             TrainingAktiv = false;
             Title = "Aktuelles Training";
             trainingService = new TrainingService();
+            aktuellesTraining = new AktuellesTrainingModel();
+            BeendeTrainingCommand = new RelayCommand(() => ExecuteBeendeTrainingCommand());
         }
-
-        protected override bool LoadDataBeimCreateAusfuehren => false;
 
         public async void CheckAktuellesTraining()
         {
@@ -52,6 +57,7 @@ namespace Darts.Logic.UI.TrainingViewModels
                 RaisePropertyChanged(nameof(TrainingAktiv));
             }
         }
+        public ICommand BeendeTrainingCommand { get; set; }
 
         private async void TrainingStartenCommand()
         {
@@ -61,10 +67,63 @@ namespace Darts.Logic.UI.TrainingViewModels
                 LoadData();
             });
         }
+        private void BeendeTraining()
+        {
+            TrainingAktiv = false;
+            trainingService.BeendeAktivesTraining(aktuellesTraining.TrainingID);
+            aktuellesTraining = new AktuellesTrainingModel();
+            ItemList = new ObservableCollection<AktuellesTrainingSpielerModel>();
 
+        }
+        private void SpielerAuswahlCallback(bool confirmed, int id)
+        {
+            if (confirmed)
+            {
+                trainingService.FuegeSpielerHinzu(id, aktuellesTraining.TrainingID);
+                LoadData();
+            }
+        }
+
+        private void ExecuteBeendeTrainingCommand()
+        {
+            Messenger.Default.Send(new OpenBestaetigungViewMessage { Beschreibung = "Soll das Training beendet werden?", Command = BeendeTraining }, "AktuellesTraining");
+        }
+
+
+        protected override bool LoadDataBeimCreateAusfuehren => false;
         protected override void LoadData()
         {
             TrainingAktiv = true;
+            var Training = trainingService.LadeAktivesTraining;
+            aktuellesTraining = new AktuellesTrainingModel
+            {
+                TrainingID = Training.ID,
+            };
+            Training.Spieler.ToList().ForEach(spieler =>
+            {
+                aktuellesTraining.Spieler.Add(new AktuellesTrainingSpielerModel
+                {
+                    ID = spieler.Spieler.ID,
+                    Name = spieler.Spieler.Name,
+                    Vorname = spieler.Spieler.Vorname
+                });
+            });
+            ItemList = aktuellesTraining.Spieler;
         }
+        protected override void ExecuteEntfernenCommand()
+        {
+            trainingService.EntferneSpieler(SelectedItem.ID);
+            base.ExecuteEntfernenCommand();
+        }
+        protected override void ExecuteNeuCommand()
+        {
+            var IDs = new List<int>();
+            ItemList.ToList().ForEach(spieler =>
+            {
+                IDs.Add(spieler.ID);
+            });
+            Messenger.Default.Send(new OpenSpielerAuswahlMessage(SpielerAuswahlCallback) { VorhandeneIDs = IDs } , "AktuellesTraining");
+        }
+
     }
 }

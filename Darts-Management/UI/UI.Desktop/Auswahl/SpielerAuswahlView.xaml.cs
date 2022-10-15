@@ -1,5 +1,4 @@
-﻿using Darts.Data.Types.BaseTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,19 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using UI.Desktop.BaseViews;
 
-namespace UI.Desktop.Spieler
+namespace UI.Desktop.Auswahl
 {
     /// <summary>
-    /// Interaktionslogik für SpielerStammdatenView.xaml
+    /// Interaktionslogik für SpielerAuswahlView.xaml
     /// </summary>
-    public partial class SpielerStammdatenView : StammdatenView
+    public partial class SpielerAuswahlView : Window
     {
-        public SpielerStammdatenView()
+        public SpielerAuswahlView()
         {
             InitializeComponent();
-            RegisterStammdatenGespeichertMessage(StammdatenTypes.spieler);
         }
     }
 }

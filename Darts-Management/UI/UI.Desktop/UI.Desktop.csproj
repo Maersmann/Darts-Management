@@ -205,6 +205,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Auswahl\SpielerAuswahlView.xaml.cs">
+      <DependentUpon>SpielerAuswahlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Behavior\TextBoxInputBehavior.cs" />
     <Compile Include="Konfigruation\KonfigurationView.xaml.cs">
       <DependentUpon>KonfigurationView.xaml</DependentUpon>
@@ -230,6 +233,10 @@
     <Compile Include="Utils\BestaetigungView.xaml.cs">
       <DependentUpon>BestaetigungView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Auswahl\SpielerAuswahlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Konfigruation\KonfigurationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -320,6 +327,10 @@
     <ProjectReference Include="..\..\Logic\Logic.Messages\Logic.Messages.csproj">
       <Project>{d8f93673-9e8e-4f2e-8b59-82d3abb3bb59}</Project>
       <Name>Logic.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logic\Logic.Models\Logic.Models.csproj">
+      <Project>{C57D4B4A-936C-49F4-BDAE-CB36093755E6}</Project>
+      <Name>Logic.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Logic\Logic.UI\Logic.UI.csproj">
       <Project>{e521da07-4c6c-4982-9bd6-82e744b5ee44}</Project>

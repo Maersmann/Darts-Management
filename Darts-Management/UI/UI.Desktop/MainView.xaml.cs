@@ -107,10 +107,11 @@ namespace Darts.UI.Desktop
                 {
                     model.ZeigeStammdatenAn(m.ID.Value);
                 }
-
+                view.Owner = this;
+                _ = view.ShowDialog();
+                m.Callback?.Invoke(model.NeuerEintragAngelegt(), model.Filter());
             }
-            view.Owner = this;
-            _ = view.ShowDialog();
+
         }
 
         private void ReceiceOpenStartingViewMessage()

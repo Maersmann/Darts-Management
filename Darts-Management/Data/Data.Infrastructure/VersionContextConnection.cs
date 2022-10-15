@@ -15,8 +15,8 @@ namespace Darts.Data.Infrastructure
                 Host = "localhost",
                 Port = 5432,
                 Database = "darts_management",
-                Username = GlobalVariables.DB_User,
-                Password = GlobalVariables.DB_Password
+                Username = "postgres",//GlobalVariables.DB_User,
+                Password = "masterkey"//GlobalVariables.DB_Password
             };
 
             return npgsqlConnectionStringBuilder.ConnectionString;

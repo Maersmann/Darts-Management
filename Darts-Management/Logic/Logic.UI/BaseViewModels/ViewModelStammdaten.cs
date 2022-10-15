@@ -14,10 +14,12 @@ namespace Darts.Logic.UI.BaseViewModels
         protected State state;
         private T1 data;
         protected T1 newData;
+        protected bool neuerEintragAngelegt;
         public ViewModelStammdaten()
         {
             Gespeichert = false;
             SaveCommand = new DelegateCommand(ExecuteSaveCommand, CanExecuteSaveCommand);
+            neuerEintragAngelegt = false;
             Cleanup();
         }
 
@@ -47,7 +49,6 @@ namespace Darts.Logic.UI.BaseViewModels
 
         protected virtual void ExecuteSaveCommand()
         {
-
         }
     }
 }

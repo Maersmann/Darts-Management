@@ -17,19 +17,21 @@ namespace Darts.Logic.UI.BaseViewModels
     {
         private T1 selectedItem;
         private ObservableCollection<T1> itemList;
+        private string filtertext;
 
         public ViewModelUebersicht()
         {
             EntfernenCommand = new DelegateCommand(ExecuteEntfernenCommand, CanExecuteCommand);
             NeuCommand = new RelayCommand(() => ExecuteNeuCommand());
             BearbeitenCommand = new DelegateCommand(ExecuteBearbeitenCommand, CanExecuteCommand);
+            SucheCommand = new RelayCommand(() => ExecuteSucheCommand());
             itemList = new ObservableCollection<T1>();
+            filtertext = "";
             if (LoadDataBeimCreateAusfuehren)
             {
                 LoadData();
             }
         }
-
 
         protected virtual int GetID() { return 0; }
         protected virtual T2 GetStammdatenTyp() { throw new NotImplementedException(); }
@@ -63,9 +65,23 @@ namespace Darts.Logic.UI.BaseViewModels
             }
         }
 
+        public string FilterText
+        {
+            get
+            {
+                return filtertext;
+            }
+            set
+            {
+                filtertext = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ICommand NeuCommand { get; protected set; }
         public ICommand BearbeitenCommand { get; protected set; }
         public ICommand EntfernenCommand { get; protected set; }
+        public ICommand SucheCommand { get; protected set; }
         #endregion
 
         #region Commands
@@ -87,6 +103,11 @@ namespace Darts.Logic.UI.BaseViewModels
         protected virtual void ExecuteNeuCommand()
         {
             Messenger.Default.Send(new BaseStammdatenMessage<T2> { State = State.Neu, ID = null, Stammdaten = GetStammdatenTyp() });
+            LoadData();
+        }
+
+        protected virtual void ExecuteSucheCommand()
+        {
             LoadData();
         }
 

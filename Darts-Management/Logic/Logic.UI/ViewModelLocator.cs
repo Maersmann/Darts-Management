@@ -13,6 +13,7 @@
 */
 
 using CommonServiceLocator;
+using Darts.Logic.UI.AuswahlViewModels;
 using Darts.Logic.UI.KonfigurationViewModels;
 using Darts.Logic.UI.OptionenViewModels;
 using Darts.Logic.UI.SpielerViewModels;
@@ -56,6 +57,7 @@ namespace Darts.Logic.UI
         public SpielerUebersichtViewModel SpielerUebersicht => new SpielerUebersichtViewModel();
         public SpielerStammdatenViewModel SpielerStammdaten => new SpielerStammdatenViewModel();
         public AktuellesTrainingViewModel AktuellesTraining => new AktuellesTrainingViewModel();
+        public SpielerAuswahlViewModel SpielerAuswahl => new SpielerAuswahlViewModel();
 
 
         public static void Cleanup()

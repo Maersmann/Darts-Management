@@ -19,10 +19,12 @@ namespace Darts.Logic.UI.SpielerViewModels
     public class SpielerStammdatenViewModel : ViewModelStammdaten<SpielerStammdatenModel, StammdatenTypes>, IViewModelStammdaten
     {
         private readonly SpielerService spielerService;
+        private string name;
         public SpielerStammdatenViewModel()
         {
             Title = "Stammdaten Spieler";
             spielerService = new SpielerService();
+            name = "";
         }
 
         public void ZeigeStammdatenAn(int id)
@@ -47,6 +49,8 @@ namespace Darts.Logic.UI.SpielerViewModels
                 Name = Data.Name,
                 Vorname = Data.Vorname
             });
+            name = Data.Vorname + " " + Data.Name;
+            neuerEintragAngelegt = true;
             Messenger.Default.Send(new StammdatenGespeichertMessage { Erfolgreich = true, Message = "Gespeichert" }, GetStammdatenTyp());
         }
 
@@ -116,5 +120,9 @@ namespace Darts.Logic.UI.SpielerViewModels
             ValidateVorname("");
             state = State.Neu;
         }
+
+        public bool NeuerEintragAngelegt() => neuerEintragAngelegt;
+
+        public string Filter() => name;
     }
 }

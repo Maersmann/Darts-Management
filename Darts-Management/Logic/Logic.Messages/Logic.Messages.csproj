@@ -44,6 +44,7 @@
     <Compile Include="..\..\_Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuswahlMessages\OpenSpielerAuswahlMessage.cs" />
     <Compile Include="BaseMessages\BaseStammdatenMessage.cs" />
     <Compile Include="BaseMessages\CloseApplicationMessage.cs" />
     <Compile Include="BaseMessages\CloseViewMessage.cs" />

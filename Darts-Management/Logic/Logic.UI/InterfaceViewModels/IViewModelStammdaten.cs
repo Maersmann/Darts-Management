@@ -9,5 +9,7 @@ namespace Darts.Logic.UI.InterfaceViewModels
     public interface IViewModelStammdaten
     {
         void ZeigeStammdatenAn(int id);
+        bool NeuerEintragAngelegt();
+        string Filter();
     }
 }

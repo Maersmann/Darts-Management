@@ -35,7 +35,7 @@
 
         <Grid Grid.Row="1" Background="{StaticResource brushStammdatenBereich}">
             <DockPanel  LastChildFill="False">
-                <Button  DockPanel.Dock="Right" Margin="5" HorizontalAlignment="Right" Width="120"  Command="{Binding OpenPinsVomMitgliedCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand" IsEnabled="{Binding TrainingAktiv}" >Training beenden</Button>
+                <Button  DockPanel.Dock="Right" Margin="5" HorizontalAlignment="Right" Width="120"  Command="{Binding BeendeTrainingCommand}" Style="{DynamicResource MaterialDesignToolForegroundButton}" Cursor="Hand" IsEnabled="{Binding TrainingAktiv}" >Training beenden</Button>
             </DockPanel>
         </Grid>
 

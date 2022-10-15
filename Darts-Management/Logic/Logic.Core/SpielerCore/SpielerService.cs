@@ -1,6 +1,7 @@
 ﻿using Darts.Data.Infrastructure;
 using Darts.Data.Infrastructure.SpielerRepositorys;
 using Darts.Data.Model.SpielerEntitys;
+using Darts.Logic.Models.AuswahlModels;
 using Darts.Logic.Models.SpielerModels;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,44 @@ namespace Darts.Logic.Core.SpielerCore
            });
 
             return SpielerUebersichtList;
+        }
+
+        public ObservableCollection<SpielerAuswahlModel> LadeFuerAuswahl(string filterText, IList<int> vorhandendeSpieler)
+        {
+            ObservableCollection<SpielerAuswahlModel> SpielerAuswahlList = new ObservableCollection<SpielerAuswahlModel>();
+
+            IList<Spieler> spieler = repo.LadeAlle(filterText, vorhandendeSpieler);
+
+            spieler.ToList().ForEach(s =>
+            {
+                SpielerAuswahlList.Add(new SpielerAuswahlModel
+                {
+                    ID = s.ID,
+                    Name = s.Name,
+                    Vorname = s.Vorname
+                });
+            });
+
+            return SpielerAuswahlList;
+        }
+
+        public ObservableCollection<SpielerAuswahlModel> LadeFuerAuswahl(string filterText)
+        {
+            ObservableCollection<SpielerAuswahlModel> SpielerAuswahlList = new ObservableCollection<SpielerAuswahlModel>();
+
+            IList<Spieler> spieler = repo.LadeAlle(filterText);
+
+            spieler.ToList().ForEach(s =>
+            {
+                SpielerAuswahlList.Add(new SpielerAuswahlModel
+                {
+                    ID = s.ID,
+                    Name = s.Name,
+                    Vorname = s.Vorname
+                });
+            });
+
+            return SpielerAuswahlList;
         }
 
         public SpielerStammdatenModel LadeByID(int id)

@@ -18,6 +18,7 @@ namespace Darts.Data.Infrastructure
         public DbSet<Konvertierung> Konvertierungen { get; set; }
         public DbSet<Spieler> Spieler { get; set; }
         public DbSet<Training> Trainings { get; set; }
+        public DbSet<TrainingSpieler> TrainingSpielers { get; set; }
 
         public Context() : base() { Database.Migrate(); }
 

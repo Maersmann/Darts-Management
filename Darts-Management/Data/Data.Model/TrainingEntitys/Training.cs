@@ -14,5 +14,7 @@ namespace Darts.Data.Model.TrainingEntitys
         public DateTime? Start { get; set; }
         public DateTime? Ende { get; set; }
         public bool Aktiv { get; set;  }
+
+        public IList<TrainingSpieler> Spieler { get; set; }
     }
 }
