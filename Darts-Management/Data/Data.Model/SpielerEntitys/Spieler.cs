@@ -13,5 +13,7 @@ namespace Darts.Data.Model.SpielerEntitys
     {
         public string Name { get; set; }
         public string Vorname { get; set; }
+
+        public IList<Bestleistung> Bestleistungen { get; set; }
     }
 }

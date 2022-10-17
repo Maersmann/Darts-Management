@@ -18,5 +18,7 @@ namespace Darts.Data.Model.TrainingEntitys
 
         public virtual Spieler Spieler { get; set; }
         public virtual Training Training { get; set; }
+
+        public IList<Bestleistung> Bestleistungen { get; set; }
     }
 }

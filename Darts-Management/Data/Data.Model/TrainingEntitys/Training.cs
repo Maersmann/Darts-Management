@@ -16,5 +16,10 @@ namespace Darts.Data.Model.TrainingEntitys
         public bool Aktiv { get; set;  }
 
         public IList<TrainingSpieler> Spieler { get; set; }
+
+        public IList<Training> ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

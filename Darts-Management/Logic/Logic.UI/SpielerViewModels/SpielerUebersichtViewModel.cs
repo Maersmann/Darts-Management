@@ -25,7 +25,17 @@ namespace Darts.Logic.UI.SpielerViewModels
 
         protected override void LoadData()
         {
-            ItemList = new SpielerService().LadeFuerUebersicht();
+            ItemList.Clear();
+            var Spieler = new SpielerService().LadeAlle();
+            Spieler.ToList().ForEach(spieler => 
+            {
+                ItemList.Add(new SpielerUebersichtModel
+                {
+                    ID = spieler.ID,
+                    Name = spieler.Name,
+                    Vorname = spieler.Vorname
+                });
+            });
         }
 
         protected override void ExecuteEntfernenCommand()

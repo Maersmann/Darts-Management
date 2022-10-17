@@ -6,6 +6,8 @@ using System.Text;
 using Darts.Data.Model.TrainingEntitys;
 using Darts.Data.Infrastructure.SpielerRepositorys;
 using Darts.Logic.Core.SpielerCore.Exceptions;
+using Darts.Logic.Core.TrainingCore.DTO;
+using Darts.Data.Types.SpielerTypes;
 
 namespace Darts.Logic.Core.TrainingCore
 {
@@ -25,6 +27,32 @@ namespace Darts.Logic.Core.TrainingCore
         public bool IstEinTrainingAktuellAktiv => repo.IstEinTrainingAktiv();
 
         public Training LadeAktivesTraining => repo.LadeAktivesTraining();
+        public IList<TrainingUebersichtDTO> LadeAlle()
+        {
+            var Result = new List<TrainingUebersichtDTO>();
+
+            var Trainings = repo.LadeAlle();
+
+            Trainings.ToList().ForEach(training =>
+            {
+                var Bestleistungen = besteleistungRepository.LadeAlleByTrainingID( training.ID);
+                var DTO = new TrainingUebersichtDTO
+                {
+                    ID = training.ID,
+                    Aktiv = training.Aktiv,
+                    Tag = training.Start.Value,
+                    AnzahlSpieler = training.Spieler.Count,
+                    AnzahlBullFinish = Bestleistungen.Count(w => w.Art.Equals(BestleistungArt.bullfinish)),
+                    AnzahlHighfinish = Bestleistungen.Count(w => w.Art.Equals(BestleistungArt.highfinish)),
+                    AnzahlHighscore = Bestleistungen.Count(w => w.Art.Equals(BestleistungArt.highscore)),
+                    AnzahlShortLeg = Bestleistungen.Count(w => w.Art.Equals(BestleistungArt.shortLeg))
+                };
+                Result.Add(DTO);
+            });
+
+            return Result.OrderByDescending(o => o.Tag).ToList();
+
+        }
 
         public void NeuesTrainingErstellen()
         {

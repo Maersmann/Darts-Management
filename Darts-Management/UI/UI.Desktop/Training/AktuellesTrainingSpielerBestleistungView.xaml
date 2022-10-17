@@ -51,7 +51,7 @@
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Art" Binding="{Binding BestleistungArt}" Width="auto" />
                 <DataGridTextColumn Header="Zahl" Binding="{Binding Value}" Width="auto" />
-                <DataGridTextColumn Header="Datum" Binding="{Binding GeworfenAm, StringFormat={}{0:dd.MM.yyyy HH:mm}, ConverterCulture='de-DE'}" Width="auto" />
+                <DataGridTextColumn Header="Datum" Binding="{Binding GeworfenAm, StringFormat={}{0:HH:mm}, ConverterCulture='de-DE'}" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
 

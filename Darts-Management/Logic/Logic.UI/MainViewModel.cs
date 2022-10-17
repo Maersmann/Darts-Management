@@ -23,12 +23,14 @@ namespace Darts.Logic.UI
             OpenStartingViewCommand = new RelayCommand(() => ExecuteOpenStartingViewCommand());
             OpenSpielerUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.SpielerUebersicht));
             OpenAktuellesTrainingCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AktuellesTraining));
+            OpenTrainingUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.TrainingUebersicht));
         }
 
 
         public ICommand OpenStartingViewCommand { get; private set; }
         public ICommand OpenSpielerUebersichtCommand { get; private set; }
         public ICommand OpenAktuellesTrainingCommand { get; private set; }
+        public ICommand OpenTrainingUebersichtCommand { get; private set; }
 
         private void ExecuteOpenViewCommand(ViewType viewType)
         {

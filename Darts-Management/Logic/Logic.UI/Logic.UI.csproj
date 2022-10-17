@@ -217,6 +217,7 @@
     <Compile Include="StartingProgrammViewModel.cs" />
     <Compile Include="TrainingViewModels\AktuellesTrainingSpielerBestleistungViewModel.cs" />
     <Compile Include="TrainingViewModels\AktuellesTrainingViewModel.cs" />
+    <Compile Include="TrainingViewModels\TrainingUebersichtViewModel.cs" />
     <Compile Include="UtilsViewModels\BestaetigungViewModel.cs" />
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>

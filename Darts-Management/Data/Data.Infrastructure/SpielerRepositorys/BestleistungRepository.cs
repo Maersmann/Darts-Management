@@ -18,5 +18,10 @@ namespace Darts.Data.Infrastructure.SpielerRepositorys
         {
             return context.Bestleistungen.FirstOrDefault(t => t.TrainingSpielerID.Equals(trainingSpielerID)) != null;
         }
+
+        public IList<Bestleistung> LadeAlleByTrainingID(int trainingID)
+        {
+            return context.Bestleistungen.Where(t => t.TrainingSpieler.TrainingID.Equals(trainingID)).ToList();
+        }
     }
 }

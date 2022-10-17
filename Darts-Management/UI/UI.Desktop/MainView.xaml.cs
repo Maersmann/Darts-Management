@@ -82,6 +82,12 @@ namespace Darts.UI.Desktop
                         }
                     }
                     break;
+                case ViewType.TrainingUebersicht:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(TrainingUebersichtView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new TrainingUebersichtView());
+                    }
+                    break;
                 default:
                     break;
 

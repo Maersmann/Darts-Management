@@ -49,6 +49,7 @@
     <Compile Include="SpielerModels\SpielerUebersichtModel.cs" />
     <Compile Include="TrainingModels\AktuellesTrainingModel.cs" />
     <Compile Include="TrainingModels\AktuellesTrainingSpielerBestleistungModel.cs" />
+    <Compile Include="TrainingModels\TrainingUebersichtModel.cs" />
     <Compile Include="UserModels\AuthenticateModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -29,13 +29,33 @@ namespace Darts.Logic.UI.AuswahlViewModels
 
         protected override void LoadData()
         {
-            ItemList = spielerService.LadeFuerAuswahl(FilterText);
+            ItemList.Clear();
+            var Spieler = spielerService.LadeAlle(FilterText);
+            Spieler.ToList().ForEach(spieler =>
+            {
+                ItemList.Add(new SpielerAuswahlModel
+                {
+                    ID = spieler.ID,
+                    Name = spieler.Name,
+                    Vorname = spieler.Vorname
+                });
+            });
         }
 
         protected override void LoadData(IList<int> vorhandeneIDs)
         {
+            ItemList.Clear();
             base.LoadData(vorhandeneIDs);
-            ItemList = spielerService.LadeFuerAuswahl(FilterText, vorhandeneIDs);
+            var Spieler = spielerService.LadeAlle(FilterText, vorhandeneIDs);
+            Spieler.ToList().ForEach(spieler =>
+            {
+                ItemList.Add(new SpielerAuswahlModel
+                {
+                    ID = spieler.ID,
+                    Name = spieler.Name,
+                    Vorname = spieler.Vorname
+                });
+            });
         }
 
         protected override StammdatenTypes GetStammdatenType() { return StammdatenTypes.spieler; }

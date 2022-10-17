@@ -60,6 +60,7 @@ namespace Darts.Logic.UI
         public SpielerAuswahlViewModel SpielerAuswahl => new SpielerAuswahlViewModel();
         public AktuellesTrainingSpielerBestleistungViewModel AktuellesTrainingSpielerBesteWerte => new AktuellesTrainingSpielerBestleistungViewModel();
         public BestleistungEintragenViewModel BestleistungEintragen => new BestleistungEintragenViewModel();
+        public TrainingUebersichtViewModel TrainingUebersicht => new TrainingUebersichtViewModel();
 
 
         public static void Cleanup()

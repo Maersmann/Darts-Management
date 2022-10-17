@@ -19,5 +19,10 @@ namespace Darts.Data.Infrastructure.TrainingRepositorys
         {
             return context.Trainings.Include(i => i.Spieler).First(t => t.Aktiv);
         }
+
+        public override IList<Training> LadeAlle()
+        {
+            return context.Trainings.Include(i => i.Spieler).ThenInclude( i => i.Bestleistungen).ToList();
+        }
     }
 }

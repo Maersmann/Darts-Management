@@ -1,6 +1,7 @@
 ﻿using Darts.Data.Infrastructure;
 using Darts.Data.Infrastructure.SpielerRepositorys;
 using Darts.Data.Model.SpielerEntitys;
+using Darts.Logic.Core.SpielerCore.DTO;
 using Darts.Logic.Models.AuswahlModels;
 using Darts.Logic.Models.SpielerModels;
 using System;
@@ -21,15 +22,15 @@ namespace Darts.Logic.Core.SpielerCore
             repo = new SpielerRepository();
         }
 
-        public ObservableCollection<SpielerUebersichtModel> LadeFuerUebersicht()
+        public IList<SpielerDTO> LadeAlle()
         {
-            ObservableCollection<SpielerUebersichtModel> SpielerUebersichtList = new ObservableCollection<SpielerUebersichtModel>();
+            IList<SpielerDTO> SpielerUebersichtList = new List<SpielerDTO>();
 
             IList<Spieler> spieler = repo.LadeAlle();
 
             spieler.ToList().ForEach(s =>
            {
-               SpielerUebersichtList.Add(new SpielerUebersichtModel
+               SpielerUebersichtList.Add(new SpielerDTO
                {
                    ID = s.ID,
                    Name = s.Name,
@@ -40,15 +41,15 @@ namespace Darts.Logic.Core.SpielerCore
             return SpielerUebersichtList;
         }
 
-        public ObservableCollection<SpielerAuswahlModel> LadeFuerAuswahl(string filterText, IList<int> vorhandendeSpieler)
+        public IList<SpielerDTO> LadeAlle(string filterText, IList<int> vorhandendeSpieler)
         {
-            ObservableCollection<SpielerAuswahlModel> SpielerAuswahlList = new ObservableCollection<SpielerAuswahlModel>();
+            IList<SpielerDTO> SpielerAuswahlList = new List<SpielerDTO>();
 
             IList<Spieler> spieler = repo.LadeAlle(filterText, vorhandendeSpieler);
 
             spieler.ToList().ForEach(s =>
             {
-                SpielerAuswahlList.Add(new SpielerAuswahlModel
+                SpielerAuswahlList.Add(new SpielerDTO
                 {
                     ID = s.ID,
                     Name = s.Name,
@@ -59,15 +60,15 @@ namespace Darts.Logic.Core.SpielerCore
             return SpielerAuswahlList;
         }
 
-        public ObservableCollection<SpielerAuswahlModel> LadeFuerAuswahl(string filterText)
+        public IList<SpielerDTO> LadeAlle(string filterText)
         {
-            ObservableCollection<SpielerAuswahlModel> SpielerAuswahlList = new ObservableCollection<SpielerAuswahlModel>();
+            IList<SpielerDTO> SpielerAuswahlList = new List<SpielerDTO>();
 
             IList<Spieler> spieler = repo.LadeAlle(filterText);
 
             spieler.ToList().ForEach(s =>
             {
-                SpielerAuswahlList.Add(new SpielerAuswahlModel
+                SpielerAuswahlList.Add(new SpielerDTO
                 {
                     ID = s.ID,
                     Name = s.Name,

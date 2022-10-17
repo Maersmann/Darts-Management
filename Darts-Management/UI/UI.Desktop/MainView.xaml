@@ -51,11 +51,12 @@
             </Fluent:Ribbon.Menu>
 
             <!--Tabs-->
-            <Fluent:RibbonTabItem Header="Dart"  ActiveTabBackground="{Binding Mode=OneWay, Source={StaticResource brusRibbonSelected}}" Foreground="White">
+            <Fluent:RibbonTabItem Header="Allgemein"  ActiveTabBackground="{Binding Mode=OneWay, Source={StaticResource brusRibbonSelected}}" Foreground="White">
                 <Fluent:RibbonGroupBox Header="Spieler" >
                     <Fluent:Button Header="Übersicht" LargeIcon="/UI.Desktop;component/Resources/account-group.png"  Command="{Binding OpenSpielerUebersichtCommand}" Width="60" Foreground="White" />
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Training" >
+                    <Fluent:Button Header="Übersicht" LargeIcon="/UI.Desktop;component/Resources/list-box.png"  Command="{Binding OpenTrainingUebersichtCommand}" Width="60" Foreground="White" />
                     <Fluent:Button Header="Aktuelles" LargeIcon="/UI.Desktop;component/Resources/list-box.png"  Command="{Binding OpenAktuellesTrainingCommand}" Width="60" Foreground="White" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
