@@ -7,7 +7,7 @@ using System.Windows;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Aktienübersicht")]
+[assembly: AssemblyTitle("Dart-Management")]
 [assembly: AssemblyDescription("")]
 
 
@@ -34,6 +34,8 @@ using System.Windows;
                                               //(wird verwendet, wenn eine Ressource auf der Seite nicht gefunden wird,
                                               // designspezifischen Ressourcenwörterbuch nicht gefunden werden kann.)
 )]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
 
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:

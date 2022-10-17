@@ -6,6 +6,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         xmlns:optionen="clr-namespace:DartSetting.UI.Desktop.Optionen"
+        xmlns:option="clr-namespace:UI.Desktop.Optionen"
         xmlns:local="clr-namespace:UI.Desktop"
         xmlns:Fluent="urn:fluent-ribbon"
         x:Name="Main"
@@ -43,6 +44,9 @@
                         <Fluent:SeparatorTabItem/>
                         <Fluent:BackstageTabItem Header="DB-Settings">
                             <optionen:DBSettingsView/>
+                        </Fluent:BackstageTabItem>
+                        <Fluent:BackstageTabItem Header="Info" IsEnabled="{Binding MenuIsEnabled, Mode=OneWay}" >
+                            <option:InfoView />
                         </Fluent:BackstageTabItem>
                         <Fluent:SeparatorTabItem/>
                         <Fluent:Button Header="Schliessen" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=Main}"/>
