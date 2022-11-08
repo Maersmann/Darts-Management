@@ -57,7 +57,7 @@
             <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" >Vorname</Label>
             <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" >Name</Label>
 
-            <TextBox Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="NoWrap"  VerticalAlignment="Top" Margin="10" Width="200" Text="{Binding Vorname, Mode=TwoWay, TargetNullValue='' }" Cursor="IBeam" >
+            <TextBox Grid.Row="0"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="NoWrap"  VerticalAlignment="Top" Margin="10" Width="200" Text="{Binding Vorname, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True }" Cursor="IBeam" >
                 <materialDesign:HintAssist.Hint>Max</materialDesign:HintAssist.Hint>
                 <Validation.ErrorTemplate>
                     <ControlTemplate>
@@ -74,7 +74,7 @@
                     </ControlTemplate>
                 </Validation.ErrorTemplate>
             </TextBox>
-            <TextBox Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="NoWrap"  VerticalAlignment="Top" Margin="10" Width="200" Text="{Binding Name, Mode=TwoWay, TargetNullValue='' }" Cursor="IBeam" >
+            <TextBox Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Center" TextWrapping="NoWrap"  VerticalAlignment="Top" Margin="10" Width="200" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True }" Cursor="IBeam" >
                 <materialDesign:HintAssist.Hint>Mustermann</materialDesign:HintAssist.Hint>
                 <Validation.ErrorTemplate>
                     <ControlTemplate>

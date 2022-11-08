@@ -61,7 +61,7 @@
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Training" >
                     <Fluent:Button Header="Übersicht" LargeIcon="/UI.Desktop;component/Resources/list-box.png"  Command="{Binding OpenTrainingUebersichtCommand}" Width="60" Foreground="White" />
-                    <Fluent:Button Header="Aktuelles" LargeIcon="/UI.Desktop;component/Resources/list-box.png"  Command="{Binding OpenAktuellesTrainingCommand}" Width="60" Foreground="White" />
+                    <Fluent:Button Header="Aktuelles" LargeIcon="/UI.Desktop;component/Resources/playlist-play.png"  Command="{Binding OpenAktuellesTrainingCommand}" Width="60" Foreground="White" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>
