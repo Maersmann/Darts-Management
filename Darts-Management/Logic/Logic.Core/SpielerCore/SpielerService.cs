@@ -92,6 +92,8 @@ namespace Darts.Logic.Core.SpielerCore
 
         public void Speichern(Spieler spieler)
         {
+            spieler.Name = spieler.Name.Trim();
+            spieler.Vorname = spieler.Vorname.Trim();
             _ = repo.Speichern(spieler);
         }
 

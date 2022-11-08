@@ -49,7 +49,7 @@ namespace Darts.Logic.UI.SpielerViewModels
                 Name = Data.Name,
                 Vorname = Data.Vorname
             });
-            name = Data.Vorname + " " + Data.Name;
+            name = Data.Vorname.Trim() + " " + Data.Name.Trim();
             neuerEintragAngelegt = true;
             Messenger.Default.Send(new StammdatenGespeichertMessage { Erfolgreich = true, Message = "Gespeichert" }, GetStammdatenTyp());
         }
