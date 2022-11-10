@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuswahlModels\SpielerAuswahlModel.cs" />
+    <Compile Include="AuswertungModels\AuswertungBestleistungenAllTimeModel.cs" />
     <Compile Include="OptionenModels\InfoModel.cs" />
     <Compile Include="OptionenModels\OPSettingsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

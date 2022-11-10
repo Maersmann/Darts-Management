@@ -199,6 +199,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AuswahlViewModels\SpielerAuswahlViewModel.cs" />
+    <Compile Include="AuswertungenViewModels\AuswertungBestleistungenAllTimeViewModel.cs" />
     <Compile Include="BaseViewModels\ViewModelAuswahl.cs" />
     <Compile Include="BaseViewModels\ViewModelAuswertung.cs" />
     <Compile Include="BaseViewModels\ViewModelBasis.cs" />

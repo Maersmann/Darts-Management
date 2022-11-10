@@ -120,6 +120,7 @@
     <Compile Include="..\..\_Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuswertungCore\AuswertungBestleistungService.cs" />
     <Compile Include="DatabaseAPI.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Interfaces\IValidierung.cs" />

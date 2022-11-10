@@ -227,6 +227,9 @@
     <Compile Include="Auswahl\SpielerAuswahlView.xaml.cs">
       <DependentUpon>SpielerAuswahlView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auswertung\AuswertungBestleistungenAllTimeView.xaml.cs">
+      <DependentUpon>AuswertungBestleistungenAllTimeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Behavior\TextBoxInputBehavior.cs" />
     <Compile Include="Konfigruation\KonfigurationView.xaml.cs">
       <DependentUpon>KonfigurationView.xaml</DependentUpon>
@@ -265,6 +268,10 @@
       <DependentUpon>BestaetigungView.xaml</DependentUpon>
     </Compile>
     <Page Include="Auswahl\SpielerAuswahlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Auswertung\AuswertungBestleistungenAllTimeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -417,6 +424,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\playlist-play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\numeric-1-box-multiple-outline.png" />
+    <Resource Include="Resources\numeric-1-box.png" />
+    <Resource Include="Resources\numeric-1-circle.png" />
+    <Resource Include="Resources\numeric-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\numeric-1-box-outline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />

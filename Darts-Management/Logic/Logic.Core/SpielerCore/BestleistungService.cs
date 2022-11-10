@@ -1,5 +1,6 @@
 ﻿using Darts.Data.Infrastructure.SpielerRepositorys;
 using Darts.Data.Model.SpielerEntitys;
+using Darts.Data.Types.AuswertungTypes;
 using Darts.Data.Types.SpielerTypes;
 using System;
 using System.Collections.Generic;
@@ -46,5 +47,25 @@ namespace Darts.Logic.Core.SpielerCore
         public void Entfernen(int iD) => bestleistungRepository.Entfernen(iD);
 
         public IList<Bestleistung> LadeAlleFuerTrainingSpieler(int trainingSpielerID) => bestleistungRepository.LadeAlleByTrainingSpielerID(trainingSpielerID);
+
+        internal IList<Bestleistung> LadeByAuswertungArt(BestleistungAuswertungArt bestleistungAuswertungArt)
+        {
+            switch (bestleistungAuswertungArt)
+            {
+                case BestleistungAuswertungArt.HundertAchtzig:
+                    return bestleistungRepository.LadeAlleHundertAchtzig();
+                case BestleistungAuswertungArt.Highfinish:
+                    return bestleistungRepository.LadeAlleByArt(BestleistungArt.highfinish);
+                case BestleistungAuswertungArt.Highscore:
+                    return bestleistungRepository.LadeAlleByArt(BestleistungArt.highscore);
+                case BestleistungAuswertungArt.ShortLeg:
+                    return bestleistungRepository.LadeAlleByArt(BestleistungArt.shortLeg);
+                case BestleistungAuswertungArt.BullFinish:
+                    return bestleistungRepository.LadeAlleByArt(BestleistungArt.bullfinish);
+                default:
+                    return new List<Bestleistung>();
+            }
+            
+        }
     }
 }

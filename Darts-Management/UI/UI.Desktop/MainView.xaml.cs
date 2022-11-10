@@ -2,26 +2,17 @@
 using Darts.Logic.Messages.BaseMessages;
 using Darts.Logic.UI.InterfaceViewModels;
 using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UI.Desktop.Spieler;
 using Vereinsverwaltung.UI.Desktop;
 using Vereinsverwaltung.UI.Desktop.Konfigruation;
 using UI.Desktop.BaseViews;
 using UI.Desktop.Training;
 using Darts.Logic.UI.TrainingViewModels;
+using System.Web.UI.WebControls;
+using UI.Desktop.Auswertung;
+using Darts.Logic.UI.AuswertungenViewModels;
+using Darts.Data.Types.AuswertungTypes;
 
 namespace Darts.UI.Desktop
 {
@@ -74,11 +65,11 @@ namespace Darts.UI.Desktop
                 case ViewType.AktuellesTraining:
                     if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AktuellesTrainingView)))
                     {
-                        var view = new AktuellesTrainingView();
-                            _ = Container.NavigationService.Navigate(view);
-                        if (view.DataContext is AktuellesTrainingViewModel model)
+                        var viewTraining = new AktuellesTrainingView();
+                            _ = Container.NavigationService.Navigate(viewTraining);
+                        if (viewTraining.DataContext is AktuellesTrainingViewModel trainingModel)
                         {
-                            model.CheckAktuellesTraining();
+                            trainingModel.CheckAktuellesTraining();
                         }
                     }
                     break;
@@ -88,9 +79,58 @@ namespace Darts.UI.Desktop
                         _ = Container.NavigationService.Navigate(new TrainingUebersichtView());
                     }
                     break;
-                default:
-                    break;
+                case ViewType.AuswertungBestleistungAllTimeHundertAchtzig:
 
+                        var view = new AuswertungBestleistungenAllTimeView();
+                        if (view.DataContext is AuswertungBestleistungenAllTimeViewModel model)
+                        {
+                            model.LoadData(BestleistungAuswertungArt.HundertAchtzig);
+                        }
+                        _ = Container.NavigationService.Navigate(view);
+
+                    break;
+                case ViewType.AuswertungBestleistungAllTimeHighscore:
+
+                        var viewHighScore = new AuswertungBestleistungenAllTimeView();
+                        if (viewHighScore.DataContext is AuswertungBestleistungenAllTimeViewModel viewHighScoreModel)
+                        {
+                        viewHighScoreModel.LoadData(BestleistungAuswertungArt.Highscore);
+                        }
+                        _ = Container.NavigationService.Navigate(viewHighScore);
+
+                    break;
+                case ViewType.AuswertungBestleistungAllTimeHighfinish:
+
+                        var viewHighFinish = new AuswertungBestleistungenAllTimeView();
+                        if (viewHighFinish.DataContext is AuswertungBestleistungenAllTimeViewModel viewHighFinishModel)
+                        {
+                        viewHighFinishModel.LoadData(BestleistungAuswertungArt.Highfinish);
+                        }
+                        _ = Container.NavigationService.Navigate(viewHighFinish);
+ 
+                    break;
+                case ViewType.AuswertungBestleistungAllTimeBullfinish:
+
+                        var viewBullFinish = new AuswertungBestleistungenAllTimeView();
+                        if (viewBullFinish.DataContext is AuswertungBestleistungenAllTimeViewModel viewBullFinishModel)
+                        {
+                            viewBullFinishModel.LoadData(BestleistungAuswertungArt.BullFinish);
+                        }
+                        _ = Container.NavigationService.Navigate(viewBullFinish);
+
+                    break;
+                case ViewType.AuswertungBestleistungAllTimeShortLeg:
+
+                        var viewShortLeg = new AuswertungBestleistungenAllTimeView();
+                        if (viewShortLeg.DataContext is AuswertungBestleistungenAllTimeViewModel viewShortLegModel)
+                        {
+                            viewShortLegModel.LoadData(BestleistungAuswertungArt.ShortLeg);
+                        }
+                        _ = Container.NavigationService.Navigate(viewShortLeg);
+
+                    break;
+                default:
+                    break;               
             }
         }
 
@@ -127,7 +167,7 @@ namespace Darts.UI.Desktop
 
         private void ReceiceOpenLoginViewMessage()
         {
-            _ = new LoginView()
+            _ = new Vereinsverwaltung.UI.Desktop.LoginView()
             {
                 Owner = Application.Current.MainWindow
             }.ShowDialog();
