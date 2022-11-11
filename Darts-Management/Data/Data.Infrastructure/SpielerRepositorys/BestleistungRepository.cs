@@ -35,5 +35,15 @@ namespace Darts.Data.Infrastructure.SpielerRepositorys
         {
             return context.Bestleistungen.Where(w => w.Art.Equals(art)).Include(i => i.Spieler).ToList();
         }
+
+        public IList<Bestleistung> LadeAlleHundertAchtzigImJahr(int jahr)
+        {
+            return context.Bestleistungen.Where(w => w.Value.Equals(180) && w.Art.Equals(BestleistungArt.highscore) && w.GeworfenAm.Value.Year.Equals(jahr)).Include(i => i.Spieler).ToList();
+        }
+
+        public IList<Bestleistung> LadeAlleByArtImJahr(BestleistungArt art, int jahr)
+        {
+            return context.Bestleistungen.Where(w => w.Art.Equals(art) && w.GeworfenAm.Value.Year.Equals(jahr)).Include(i => i.Spieler).ToList();
+        }
     }
 }

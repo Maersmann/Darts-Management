@@ -79,55 +79,18 @@ namespace Darts.UI.Desktop
                         _ = Container.NavigationService.Navigate(new TrainingUebersichtView());
                     }
                     break;
-                case ViewType.AuswertungBestleistungAllTimeHundertAchtzig:
-
-                        var view = new AuswertungBestleistungenAllTimeView();
-                        if (view.DataContext is AuswertungBestleistungenAllTimeViewModel model)
-                        {
-                            model.LoadData(BestleistungAuswertungArt.HundertAchtzig);
-                        }
-                        _ = Container.NavigationService.Navigate(view);
-
+                case ViewType.AuswertungBestleistungAllTime:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenAllTimeView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenAllTimeView());
+                    }
                     break;
-                case ViewType.AuswertungBestleistungAllTimeHighscore:
 
-                        var viewHighScore = new AuswertungBestleistungenAllTimeView();
-                        if (viewHighScore.DataContext is AuswertungBestleistungenAllTimeViewModel viewHighScoreModel)
-                        {
-                        viewHighScoreModel.LoadData(BestleistungAuswertungArt.Highscore);
-                        }
-                        _ = Container.NavigationService.Navigate(viewHighScore);
-
-                    break;
-                case ViewType.AuswertungBestleistungAllTimeHighfinish:
-
-                        var viewHighFinish = new AuswertungBestleistungenAllTimeView();
-                        if (viewHighFinish.DataContext is AuswertungBestleistungenAllTimeViewModel viewHighFinishModel)
-                        {
-                        viewHighFinishModel.LoadData(BestleistungAuswertungArt.Highfinish);
-                        }
-                        _ = Container.NavigationService.Navigate(viewHighFinish);
- 
-                    break;
-                case ViewType.AuswertungBestleistungAllTimeBullfinish:
-
-                        var viewBullFinish = new AuswertungBestleistungenAllTimeView();
-                        if (viewBullFinish.DataContext is AuswertungBestleistungenAllTimeViewModel viewBullFinishModel)
-                        {
-                            viewBullFinishModel.LoadData(BestleistungAuswertungArt.BullFinish);
-                        }
-                        _ = Container.NavigationService.Navigate(viewBullFinish);
-
-                    break;
-                case ViewType.AuswertungBestleistungAllTimeShortLeg:
-
-                        var viewShortLeg = new AuswertungBestleistungenAllTimeView();
-                        if (viewShortLeg.DataContext is AuswertungBestleistungenAllTimeViewModel viewShortLegModel)
-                        {
-                            viewShortLegModel.LoadData(BestleistungAuswertungArt.ShortLeg);
-                        }
-                        _ = Container.NavigationService.Navigate(viewShortLeg);
-
+                case ViewType.AuswertungBestleistungJahresliste:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenJahreslisteView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenJahreslisteView());
+                    }
                     break;
                 default:
                     break;               

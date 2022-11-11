@@ -24,11 +24,8 @@ namespace Darts.Logic.UI
             OpenSpielerUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.SpielerUebersicht));
             OpenAktuellesTrainingCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AktuellesTraining));
             OpenTrainingUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.TrainingUebersicht));
-            OpenAuswertungBestleistungAllTimeHundertAchtzigCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTimeHundertAchtzig));
-            OpenAuswertungBestleistungAllTimeHighscoreCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTimeHighscore));
-            OpenAuswertungBestleistungAllTimeHighfinishCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTimeHighfinish));
-            OpenAuswertungBestleistungAllTimeBullfinishCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTimeBullfinish));
-            OpenAuswertungBestleistungAllTimeShortLegCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTimeShortLeg));
+            OpenAuswertungBestleistungAllTimeHundertAchtzigCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTime));
+            OpenAuswertungBestleistungenJahreslisteCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungJahresliste));
         }
 
 
@@ -41,6 +38,7 @@ namespace Darts.Logic.UI
         public ICommand OpenAuswertungBestleistungAllTimeHighfinishCommand { get; private set; }
         public ICommand OpenAuswertungBestleistungAllTimeBullfinishCommand { get; private set; }
         public ICommand OpenAuswertungBestleistungAllTimeShortLegCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungenJahreslisteCommand { get; private set; }
 
 
         private void ExecuteOpenViewCommand(ViewType viewType)

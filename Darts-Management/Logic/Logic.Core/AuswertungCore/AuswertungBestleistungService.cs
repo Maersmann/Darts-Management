@@ -43,5 +43,28 @@ namespace Darts.Logic.Core.AuswertungCore
 
             return ReturnList;
         }
+
+        public ObservableCollection<AuswertungBestleistungenAllTimeModel> ErmittleJahresliste(BestleistungAuswertungArt bestleistungAuswertungArt, int jahr)
+        {
+            var ReturnList = new ObservableCollection<AuswertungBestleistungenAllTimeModel>();
+
+            IList<Bestleistung> Bestleistungen = bestleistungService.LadeByAuswertungArtUndJahr(bestleistungAuswertungArt, jahr);
+
+            Bestleistungen.GroupBy(g => g.Spieler).OrderByDescending(o => o.Count()).ToList().ForEach(x => ReturnList.Add(new AuswertungBestleistungenAllTimeModel { Anzahl = x.Count(), Name = x.Key.Vorname + " " + x.Key.Name }));
+
+            int AnzahlVorheriger = 0;
+            int AktuellerPlatz = 1;
+            ReturnList.ToList().ForEach(x =>
+            {
+                if (AnzahlVorheriger > x.Anzahl)
+                {
+                    AktuellerPlatz++;
+                }
+                x.Platz = AktuellerPlatz;
+                AnzahlVorheriger = x.Anzahl;
+            });
+
+            return ReturnList;
+        }
     }
 }

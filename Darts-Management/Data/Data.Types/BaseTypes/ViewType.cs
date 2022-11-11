@@ -11,10 +11,7 @@ namespace Darts.Data.Types.BaseTypes
         SpielerUebersicht,
         AktuellesTraining,
         TrainingUebersicht,
-        AuswertungBestleistungAllTimeHundertAchtzig,
-        AuswertungBestleistungAllTimeHighscore,
-        AuswertungBestleistungAllTimeHighfinish,
-        AuswertungBestleistungAllTimeBullfinish,
-        AuswertungBestleistungAllTimeShortLeg
+        AuswertungBestleistungAllTime,
+        AuswertungBestleistungJahresliste
     }
 }

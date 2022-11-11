@@ -230,6 +230,9 @@
     <Compile Include="Auswertung\AuswertungBestleistungenAllTimeView.xaml.cs">
       <DependentUpon>AuswertungBestleistungenAllTimeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auswertung\AuswertungBestleistungenJahreslisteView.xaml.cs">
+      <DependentUpon>AuswertungBestleistungenJahreslisteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Behavior\TextBoxInputBehavior.cs" />
     <Compile Include="Konfigruation\KonfigurationView.xaml.cs">
       <DependentUpon>KonfigurationView.xaml</DependentUpon>
@@ -272,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Auswertung\AuswertungBestleistungenAllTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Auswertung\AuswertungBestleistungenJahreslisteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

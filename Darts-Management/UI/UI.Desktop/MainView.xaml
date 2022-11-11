@@ -66,12 +66,9 @@
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Bestleistungen"  ActiveTabBackground="{Binding Mode=OneWay, Source={StaticResource brusRibbonSelected}}" Foreground="White">
-                <Fluent:RibbonGroupBox Header="All-Time" >
-                    <Fluent:Button Header="180" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box-multiple-outline.png"  Command="{Binding OpenAuswertungBestleistungAllTimeHundertAchtzigCommand}" Width="60" Foreground="White" />
-                    <Fluent:Button Header="Highscore" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box.png"  Command="{Binding OpenAuswertungBestleistungAllTimeHighscoreCommand}" Width="60" Foreground="White" />
-                    <Fluent:Button Header="Highfinish" LargeIcon="/UI.Desktop;component/Resources/numeric-1-circle.png"  Command="{Binding OpenAuswertungBestleistungAllTimeHighfinishCommand}" Width="60" Foreground="White" />
-                    <Fluent:Button Header="Bullfinish" LargeIcon="/UI.Desktop;component/Resources/numeric-1.png"  Command="{Binding OpenAuswertungBestleistungAllTimeBullfinishCommand}" Width="60" Foreground="White" />
-                    <Fluent:Button Header="Short Leg" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box-outline.png"  Command="{Binding OpenAuswertungBestleistungAllTimeShortLegCommand}" Width="60" Foreground="White" />
+                <Fluent:RibbonGroupBox Header="Besten Liste" >
+                    <Fluent:Button Header="All-Time" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box-multiple-outline.png"  Command="{Binding OpenAuswertungBestleistungAllTimeHundertAchtzigCommand}" Width="60" Foreground="White" />
+                    <Fluent:Button Header="Jahresliste" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box.png"  Command="{Binding OpenAuswertungBestleistungenJahreslisteCommand}" Width="60" Foreground="White" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>
