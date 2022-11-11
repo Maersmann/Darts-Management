@@ -201,6 +201,7 @@
     <Compile Include="AuswahlViewModels\SpielerAuswahlViewModel.cs" />
     <Compile Include="AuswertungenViewModels\AuswertungBestleistungenAllTimeViewModel.cs" />
     <Compile Include="AuswertungenViewModels\AuswertungBestleistungenJahreslisteViewModel.cs" />
+    <Compile Include="AuswertungenViewModels\AuswertungBestleistungenMonatslisteViewModel.cs" />
     <Compile Include="BaseViewModels\ViewModelAuswahl.cs" />
     <Compile Include="BaseViewModels\ViewModelAuswertung.cs" />
     <Compile Include="BaseViewModels\ViewModelBasis.cs" />

@@ -12,6 +12,7 @@ namespace Darts.Data.Types.BaseTypes
         AktuellesTraining,
         TrainingUebersicht,
         AuswertungBestleistungAllTime,
-        AuswertungBestleistungJahresliste
+        AuswertungBestleistungJahresliste,
+        AuswertungBestleistungMonatsliste
     }
 }

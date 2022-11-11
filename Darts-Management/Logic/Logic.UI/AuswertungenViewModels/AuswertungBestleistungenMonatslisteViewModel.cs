@@ -5,7 +5,6 @@ using Darts.Logic.Core.Validierung;
 using Darts.Logic.Models.AuswertungModels;
 using Darts.Logic.UI.BaseViewModels;
 using GalaSoft.MvvmLight.CommandWpf;
-using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +14,15 @@ using System.Windows.Input;
 
 namespace Darts.Logic.UI.AuswertungenViewModels
 {
-    public class AuswertungBestleistungenJahreslisteViewModel : ViewModelUebersicht<AuswertungBestleistungenAllTimeModel, StammdatenTypes>
+    public class AuswertungBestleistungenMonatslisteViewModel : ViewModelUebersicht<AuswertungBestleistungenAllTimeModel, StammdatenTypes>
     {
         private int gesamtAnzahl = 0;
         private int jahr = DateTime.Now.Year;
         private BestleistungAuswertungArt bestleistungAuswertungArt = BestleistungAuswertungArt.HundertAchtzig;
-        public AuswertungBestleistungenJahreslisteViewModel()
+        private Monat monat = (Monat)DateTime.Now.Month;
+        public AuswertungBestleistungenMonatslisteViewModel()
         {
-            Title = "Jahresliste Bestwerte";
+            Title = "Monatsliste Bestwerte";
             ErmittelnCommand = new RelayCommand(() => ExcecuteErmittelnCommand());
         }
 
@@ -32,7 +32,7 @@ namespace Darts.Logic.UI.AuswertungenViewModels
         private void ExcecuteErmittelnCommand()
         {
             ItemList.Clear();
-            ItemList = new AuswertungBestleistungService().ErmittleBestliste(BestlisteAuswertungArt.Jahresliste, bestleistungAuswertungArt, jahr);
+            ItemList = new AuswertungBestleistungService().ErmittleBestliste(BestlisteAuswertungArt.Monatsliste, bestleistungAuswertungArt, jahr, (int)monat);
             BerechneGesamtAnzahl();
         }
 
@@ -50,12 +50,23 @@ namespace Darts.Logic.UI.AuswertungenViewModels
         }
         public ICommand ErmittelnCommand { get; set; }
         public IEnumerable<BestleistungAuswertungArt> BestleistungAuswertungArten => Enum.GetValues(typeof(BestleistungAuswertungArt)).Cast<BestleistungAuswertungArt>();
+        public IEnumerable<Monat> Monate => Enum.GetValues(typeof(Monat)).Cast<Monat>();
         public BestleistungAuswertungArt BestleistungAuswertungArt
         {
             get => bestleistungAuswertungArt;
             set
             {
                 bestleistungAuswertungArt = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Monat Monat
+        {
+            get => monat;
+            set
+            {
+                monat = value;
                 RaisePropertyChanged();
             }
         }

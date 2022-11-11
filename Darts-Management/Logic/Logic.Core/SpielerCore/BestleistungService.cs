@@ -86,5 +86,24 @@ namespace Darts.Logic.Core.SpielerCore
                     return new List<Bestleistung>();
             }
         }
+
+        internal IList<Bestleistung> LadeByAuswertungArtUndJahrundMonat(BestleistungAuswertungArt bestleistungAuswertungArt, int jahr, int monat)
+        {
+            switch (bestleistungAuswertungArt)
+            {
+                case BestleistungAuswertungArt.HundertAchtzig:
+                    return bestleistungRepository.LadeAlleHundertAchtzigImJahrundMonat(jahr, monat);
+                case BestleistungAuswertungArt.Highfinish:
+                    return bestleistungRepository.LadeAlleByArtImJahrundMonat(BestleistungArt.highfinish, jahr, monat);
+                case BestleistungAuswertungArt.Highscore:
+                    return bestleistungRepository.LadeAlleByArtImJahrundMonat(BestleistungArt.highscore, jahr, monat);
+                case BestleistungAuswertungArt.ShortLeg:
+                    return bestleistungRepository.LadeAlleByArtImJahrundMonat(BestleistungArt.shortLeg, jahr, monat);
+                case BestleistungAuswertungArt.BullFinish:
+                    return bestleistungRepository.LadeAlleByArtImJahrundMonat(BestleistungArt.bullfinish, jahr, monat);
+                default:
+                    return new List<Bestleistung>();
+            }
+        }
     }
 }

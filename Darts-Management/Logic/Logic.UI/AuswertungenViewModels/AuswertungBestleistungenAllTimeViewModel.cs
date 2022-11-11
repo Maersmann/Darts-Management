@@ -31,7 +31,7 @@ namespace Darts.Logic.UI.AuswertungenViewModels
         private void ExcecuteErmittelnCommand()
         {
             ItemList.Clear();
-            ItemList = new AuswertungBestleistungService().ErmittleAllTime(bestleistungAuswertungArt);
+            ItemList = new AuswertungBestleistungService().ErmittleBestliste(BestlisteAuswertungArt.AllTime, bestleistungAuswertungArt);
             BerechneGesamtAnzahl();
         }
 

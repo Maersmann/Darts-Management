@@ -92,6 +92,12 @@ namespace Darts.UI.Desktop
                         _ = Container.NavigationService.Navigate(new AuswertungBestleistungenJahreslisteView());
                     }
                     break;
+                case ViewType.AuswertungBestleistungMonatsliste:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenMonatslisteView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenMonatslisteView());
+                    }
+                    break;
                 default:
                     break;               
             }

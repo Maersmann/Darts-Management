@@ -233,6 +233,9 @@
     <Compile Include="Auswertung\AuswertungBestleistungenJahreslisteView.xaml.cs">
       <DependentUpon>AuswertungBestleistungenJahreslisteView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auswertung\AuswertungBestleistungenMonatslisteView.xaml.cs">
+      <DependentUpon>AuswertungBestleistungenMonatslisteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Behavior\TextBoxInputBehavior.cs" />
     <Compile Include="Konfigruation\KonfigurationView.xaml.cs">
       <DependentUpon>KonfigurationView.xaml</DependentUpon>
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Auswertung\AuswertungBestleistungenJahreslisteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Auswertung\AuswertungBestleistungenMonatslisteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

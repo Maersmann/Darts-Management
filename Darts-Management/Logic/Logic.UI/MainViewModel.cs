@@ -26,6 +26,7 @@ namespace Darts.Logic.UI
             OpenTrainingUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.TrainingUebersicht));
             OpenAuswertungBestleistungAllTimeHundertAchtzigCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTime));
             OpenAuswertungBestleistungenJahreslisteCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungJahresliste));
+            OpenAuswertungBestleistungenMonatslisteCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungMonatsliste));
         }
 
 
@@ -39,7 +40,7 @@ namespace Darts.Logic.UI
         public ICommand OpenAuswertungBestleistungAllTimeBullfinishCommand { get; private set; }
         public ICommand OpenAuswertungBestleistungAllTimeShortLegCommand { get; private set; }
         public ICommand OpenAuswertungBestleistungenJahreslisteCommand { get; private set; }
-
+        public ICommand OpenAuswertungBestleistungenMonatslisteCommand { get; private set; }
 
         private void ExecuteOpenViewCommand(ViewType viewType)
         {
