@@ -47,6 +47,7 @@ namespace Darts.Logic.Core.SpielerCore
         public void Entfernen(int iD) => bestleistungRepository.Entfernen(iD);
 
         public IList<Bestleistung> LadeAlleFuerTrainingSpieler(int trainingSpielerID) => bestleistungRepository.LadeAlleByTrainingSpielerID(trainingSpielerID);
+        public IList<Bestleistung> LadeAlleFuerTraining(int trainingID) => bestleistungRepository.LadeAlleByTrainingID(trainingID);
 
         internal IList<Bestleistung> LadeByAuswertungArt(BestleistungAuswertungArt bestleistungAuswertungArt)
         {

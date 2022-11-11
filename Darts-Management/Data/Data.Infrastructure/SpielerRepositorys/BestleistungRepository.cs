@@ -23,7 +23,7 @@ namespace Darts.Data.Infrastructure.SpielerRepositorys
 
         public IList<Bestleistung> LadeAlleByTrainingID(int trainingID)
         {
-            return context.Bestleistungen.Where(t => t.TrainingSpieler.TrainingID.Equals(trainingID)).ToList();
+            return context.Bestleistungen.Where(t => t.TrainingSpieler.TrainingID.Equals(trainingID)).Include(i => i.Spieler).ToList();
         }
 
         public IList<Bestleistung> LadeAlleHundertAchtzig()

@@ -267,6 +267,9 @@
     <Compile Include="Training\AktuellesTrainingView.xaml.cs">
       <DependentUpon>AktuellesTrainingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Training\TrainingBestleistungenUebersichtView.xaml.cs">
+      <DependentUpon>TrainingBestleistungenUebersichtView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Training\TrainingUebersichtView.xaml.cs">
       <DependentUpon>TrainingUebersichtView.xaml</DependentUpon>
     </Compile>
@@ -347,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Training\AktuellesTrainingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Training\TrainingBestleistungenUebersichtView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

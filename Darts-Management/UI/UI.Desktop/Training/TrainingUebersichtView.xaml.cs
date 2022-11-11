@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Darts.Logic.Messages.AuswahlMessages;
+using Darts.Logic.Messages.TrainingMessages;
+using Darts.Logic.UI.TrainingViewModels;
+using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +27,26 @@ namespace UI.Desktop.Training
         public TrainingUebersichtView()
         {
             InitializeComponent();
+            Messenger.Default.Register<OpenBestleistungenVomTrainingMessage>(this, "TrainingUebersicht", m => ReceiveOpenBestleistungenVomTrainingMessage(m));
+        }
+
+        private void ReceiveOpenBestleistungenVomTrainingMessage(OpenBestleistungenVomTrainingMessage m)
+        {
+            TrainingBestleistungenUebersichtView view = new TrainingBestleistungenUebersichtView
+            {
+                Owner = Application.Current.MainWindow
+            };
+
+            if (view.DataContext is TrainingBestleistungenUebersichtViewModel model)
+            {
+                model.LoadData(m.ID);
+                view.ShowDialog();
+            }
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Unregister<OpenBestleistungenVomTrainingMessage>(this);
         }
     }
 }

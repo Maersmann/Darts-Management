@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="400" MinWidth="650px"         
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
-             DataContext="{Binding TrainingUebersicht, Source={StaticResource Locator}}">
+             DataContext="{Binding TrainingUebersicht, Source={StaticResource Locator}}" Unloaded="UserControl_Unloaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -43,6 +43,13 @@
                 <DataGridTextColumn Header="Highfinish" Binding="{Binding AnzahlHighfinish}" Width="auto" />
                 <DataGridTextColumn Header="Short Leg" Binding="{Binding AnzahlShortLeg}" Width="auto" />
                 <DataGridTextColumn Header="Bullfinish" Binding="{Binding AnzahlBullFinish}" Width="auto" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Bestleistungen" Style="{DynamicResource MaterialDesignOutlinedButton}" Command="{Binding DataContext.BestleistungenCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

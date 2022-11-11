@@ -11,7 +11,7 @@
              d:DesignHeight="450" d:DesignWidth="400" MinWidth="650px"         
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
-             DataContext="{Binding auswertungBestleistungenMonatsliste, Source={StaticResource Locator}}">
+             DataContext="{Binding AuswertungBestleistungenMonatsliste, Source={StaticResource Locator}}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -136,7 +136,7 @@
         <DataGrid Grid.Row="2" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Platz" Binding="{Binding Platz, StringFormat={}{0}.}" Width="auto" ElementStyle="{StaticResource horizontalCenter}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"/>
+                <DataGridTextColumn Header="Spieler" Binding="{Binding Name}" Width="auto"/>
                 <DataGridTextColumn Header="Anzahl" Binding="{Binding Anzahl}" Width="auto" ElementStyle="{StaticResource horizontalCenter}" />
             </DataGrid.Columns>
         </DataGrid>

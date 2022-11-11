@@ -133,7 +133,7 @@
         <DataGrid Grid.Row="2" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Platz" Binding="{Binding Platz, StringFormat={}{0}.}" Width="auto" ElementStyle="{StaticResource horizontalCenter}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto"/>
+                <DataGridTextColumn Header="Spieler" Binding="{Binding Name}" Width="auto"/>
                 <DataGridTextColumn Header="Anzahl" Binding="{Binding Anzahl}" Width="auto" ElementStyle="{StaticResource horizontalCenter}" />
             </DataGrid.Columns>
         </DataGrid>
