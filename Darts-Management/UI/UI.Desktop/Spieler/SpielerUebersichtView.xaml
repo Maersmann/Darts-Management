@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25px"/>
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>
@@ -49,6 +49,16 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding NeuCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand">
+            <Image Source="/UI.Desktop;component/Resources/add.png" Stretch="None"/>
+        </Button>
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding BearbeitenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Cursor="Hand">
+            <Image Source="/UI.Desktop;component/Resources/bearbeiten.png" Stretch="None"/>
+        </Button>
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,145,10" Cursor="Hand" >
+            <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
+        </Button>
+
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="450"/>
@@ -58,15 +68,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding NeuCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand">
-                    <Image Source="/UI.Desktop;component/Resources/add.png" Stretch="None"/>
-                </Button>
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding BearbeitenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Cursor="Hand">
-                    <Image Source="/UI.Desktop;component/Resources/bearbeiten.png" Stretch="None"/>
-                </Button>
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,145,10" Cursor="Hand" >
-                    <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
-                </Button>
+
             </Grid>
         </Grid>
 

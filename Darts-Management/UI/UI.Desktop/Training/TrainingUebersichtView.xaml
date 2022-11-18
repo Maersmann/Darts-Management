@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25px"/>
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>

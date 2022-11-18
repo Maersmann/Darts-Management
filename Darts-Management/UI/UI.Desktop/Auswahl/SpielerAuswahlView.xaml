@@ -27,7 +27,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25px" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>
@@ -78,6 +78,10 @@
 
         </Grid>
 
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionDarkButton}" Command="{Binding NewItemCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Height="40" Width="40">
+            <Image Source="../Resources/add.png" Stretch="None"/>
+        </Button>
+
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="9*"/>
@@ -86,9 +90,7 @@
 
 
             <Grid Grid.Column="1">
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionDarkButton}" Command="{Binding NewItemCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Height="40" Width="40">
-                    <Image Source="../Resources/add.png" Stretch="None"/>
-                </Button>
+
             </Grid>
         </Grid>
 
