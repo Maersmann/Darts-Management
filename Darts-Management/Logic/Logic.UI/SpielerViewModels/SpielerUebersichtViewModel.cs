@@ -1,5 +1,6 @@
 ﻿using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.SpielerCore;
+using Darts.Logic.Core.SpielerCore.Exceptions;
 using Darts.Logic.Core.TrainingCore;
 using Darts.Logic.Messages.SpielerMessages;
 using Darts.Logic.Messages.TrainingMessages;
@@ -47,8 +48,16 @@ namespace Darts.Logic.UI.SpielerViewModels
 
         protected override void ExecuteEntfernenCommand()
         {
-            new SpielerService().Entfernen(SelectedItem.ID);
-            base.ExecuteEntfernenCommand();
+            try
+            {
+                new SpielerService().Entfernen(SelectedItem.ID);
+                base.ExecuteEntfernenCommand();
+            }
+            catch (SpielerImTrainingVorhandenException)
+            {
+                SendExceptionMessage("Spieler hat schon an ein Training teilgenommen");
+            }
+
         }
 
         private void ExecuteBestleistungenCommand()
