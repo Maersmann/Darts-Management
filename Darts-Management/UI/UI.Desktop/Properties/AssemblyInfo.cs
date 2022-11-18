@@ -34,8 +34,8 @@ using System.Windows;
                                               //(wird verwendet, wenn eine Ressource auf der Seite nicht gefunden wird,
                                               // designspezifischen Ressourcenwörterbuch nicht gefunden werden kann.)
 )]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]
 
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
