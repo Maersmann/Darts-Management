@@ -37,7 +37,8 @@
 
         <DataGrid Grid.Row="1" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Tag" Binding="{Binding Tag, StringFormat={}{0:dd.MM.yyyy}, ConverterCulture='de-DE'}" Width="auto" />
+                <DataGridTextColumn Header="Tag" Binding="{Binding Wochentag}" Width="auto" />
+                <DataGridTextColumn Header="Datum" Binding="{Binding Tag, StringFormat={}{0:dd.MM.yyyy}, ConverterCulture='de-DE'}" Width="auto" />
                 <DataGridTextColumn Header="Spieler" Binding="{Binding AnzahlSpieler}" Width="auto" />
                 <DataGridTextColumn Header="Highscore" Binding="{Binding AnzahlHighscore}" Width="auto" />
                 <DataGridTextColumn Header="Highfinish" Binding="{Binding AnzahlHighfinish}" Width="auto" />
