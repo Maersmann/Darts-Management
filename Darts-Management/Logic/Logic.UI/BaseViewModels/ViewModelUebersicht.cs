@@ -53,7 +53,7 @@ namespace Darts.Logic.UI.BaseViewModels
             }
         }
 
-        public T1 SelectedItem
+        public virtual T1 SelectedItem
         {
             get => selectedItem;
             set
