@@ -112,5 +112,7 @@ namespace Darts.Logic.Core.SpielerCore
                 _ = repo.Entfernen(id);
             }     
         }
+
+        public bool IstNameSchonVorhanden(string fullname) => repo.IstNameVorhanden(fullname);
     }
 }

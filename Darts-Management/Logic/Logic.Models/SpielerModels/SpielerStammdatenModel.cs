@@ -11,5 +11,7 @@ namespace Darts.Logic.Models.SpielerModels
         public string Name { get; set; }
         public string Vorname { get; set; }
         public int ID { get; set; }
+
+        public string Fullname => Vorname.Trim() + " " + Name.Trim(); 
     }
 }
