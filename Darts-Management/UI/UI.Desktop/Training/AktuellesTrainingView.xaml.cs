@@ -33,6 +33,21 @@ namespace UI.Desktop.Training
             RegisterMessages("AktuellesTraining");
             Messenger.Default.Register<OpenSpielerAuswahlMessage>(this, "AktuellesTraining", m => ReceiveOpenSpielerAuswahlMessage(m));
             Messenger.Default.Register<OpenBestleistungMessage>(this, "AktuellesTraining", m => ReceiveOpenBesteWerteMessage(m));
+            Messenger.Default.Register<OpenBestleistungenVomTrainingMessage>(this, "AktuellesTraining", m => ReceiveOpenBestleistungenVomTrainingMessage(m));
+        }
+
+        private void ReceiveOpenBestleistungenVomTrainingMessage(OpenBestleistungenVomTrainingMessage m)
+        {
+            TrainingBestleistungenUebersichtView view = new TrainingBestleistungenUebersichtView
+            {
+                Owner = Application.Current.MainWindow
+            };
+
+            if (view.DataContext is TrainingBestleistungenUebersichtViewModel model)
+            {
+                model.LoadData(m.ID);
+                view.ShowDialog();
+            }
         }
 
         private void ReceiveOpenBesteWerteMessage(OpenBestleistungMessage m)
@@ -76,6 +91,7 @@ namespace UI.Desktop.Training
             base.Window_Unloaded(sender, e);
             Messenger.Default.Unregister<OpenSpielerAuswahlMessage>(this);
             Messenger.Default.Unregister<OpenBestleistungMessage>(this);
+            Messenger.Default.Unregister<OpenBestleistungenVomTrainingMessage>(this);
         }
     }
 }

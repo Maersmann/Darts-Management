@@ -64,5 +64,16 @@ namespace Darts.Logic.UI.BaseViewModels
         protected virtual B GetStammdatenType() { throw new NotImplementedException(); }
 
         public bool AuswahlGetaetigt { get; set; }
+
+        public bool CanAuswaehlen => SelectedItem != null;
+
+        public override T SelectedItem { 
+            get => base.SelectedItem; 
+            set  
+            {
+                base.SelectedItem = value;
+                RaisePropertyChanged(nameof(CanAuswaehlen));
+             } 
+        }
     }
 }

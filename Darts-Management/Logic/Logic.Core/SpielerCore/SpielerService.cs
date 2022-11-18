@@ -1,7 +1,9 @@
 ﻿using Darts.Data.Infrastructure;
 using Darts.Data.Infrastructure.SpielerRepositorys;
+using Darts.Data.Infrastructure.TrainingRepositorys;
 using Darts.Data.Model.SpielerEntitys;
 using Darts.Logic.Core.SpielerCore.DTO;
+using Darts.Logic.Core.SpielerCore.Exceptions;
 using Darts.Logic.Models.AuswahlModels;
 using Darts.Logic.Models.SpielerModels;
 using System;
@@ -16,10 +18,12 @@ namespace Darts.Logic.Core.SpielerCore
     public class SpielerService
     {
         private readonly SpielerRepository repo;
+        private readonly TrainingSpielerRepository trainingSpielerRepository;
 
         public SpielerService()
         {
             repo = new SpielerRepository();
+            trainingSpielerRepository = new TrainingSpielerRepository();
         }
 
         public IList<SpielerDTO> LadeAlle()
@@ -28,7 +32,7 @@ namespace Darts.Logic.Core.SpielerCore
 
             IList<Spieler> spieler = repo.LadeAlle();
 
-            spieler.ToList().ForEach(s =>
+            spieler.OrderBy(o => o.Name).ToList().ForEach(s =>
            {
                SpielerUebersichtList.Add(new SpielerDTO
                {
@@ -47,7 +51,7 @@ namespace Darts.Logic.Core.SpielerCore
 
             IList<Spieler> spieler = repo.LadeAlle(filterText, vorhandendeSpieler);
 
-            spieler.ToList().ForEach(s =>
+            spieler.OrderBy(o => o.Name).ToList().ForEach(s =>
             {
                 SpielerAuswahlList.Add(new SpielerDTO
                 {
@@ -66,7 +70,7 @@ namespace Darts.Logic.Core.SpielerCore
 
             IList<Spieler> spieler = repo.LadeAlle(filterText);
 
-            spieler.ToList().ForEach(s =>
+            spieler.OrderBy(o => o.Name).ToList().ForEach(s =>
             {
                 SpielerAuswahlList.Add(new SpielerDTO
                 {
@@ -99,7 +103,16 @@ namespace Darts.Logic.Core.SpielerCore
 
         public void Entfernen(int id)
         {
-            _ = repo.Entfernen(id);
+            if (trainingSpielerRepository.IstSpielerImTrainingVorhanden(id))
+            {
+                throw new SpielerImTrainingVorhandenException();
+            }
+            else
+            {
+                _ = repo.Entfernen(id);
+            }     
         }
+
+        public bool IstNameSchonVorhanden(string fullname) => repo.IstNameVorhanden(fullname);
     }
 }

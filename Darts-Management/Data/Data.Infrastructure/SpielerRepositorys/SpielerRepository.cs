@@ -18,5 +18,10 @@ namespace Darts.Data.Infrastructure.SpielerRepositorys
         {
             return context.Spieler.Where(w => (w.Vorname.Trim() + " " + w.Name.Trim()).Trim().ToLower().Contains(filterText.Trim().ToLower()) && !vorhandendeSpieler.Contains(w.ID) ).ToList();
         }
+
+        public bool IstNameVorhanden(string name)
+        {
+            return context.Spieler.FirstOrDefault(t => (t.Vorname + " " + t.Name).ToLower().Equals(name.ToLower())) != null;
+        }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Desktop.Spieler"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Unloaded="UserControl_Unloaded"
              d:DesignHeight="450" d:DesignWidth="400" MinWidth="650px"         
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25px"/>
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>
@@ -39,8 +39,25 @@
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="auto" />
                 <DataGridTextColumn Header="Vorname" Binding="{Binding Vorname}" Width="auto" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Bestleistungen" Style="{DynamicResource MaterialDesignOutlinedButton}" Command="{Binding DataContext.BestleistungenCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding NeuCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand">
+            <Image Source="/UI.Desktop;component/Resources/add.png" Stretch="None"/>
+        </Button>
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding BearbeitenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Cursor="Hand">
+            <Image Source="/UI.Desktop;component/Resources/bearbeiten.png" Stretch="None"/>
+        </Button>
+        <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,145,10" Cursor="Hand" >
+            <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
+        </Button>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -51,15 +68,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding NeuCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand">
-                    <Image Source="/UI.Desktop;component/Resources/add.png" Stretch="None"/>
-                </Button>
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding BearbeitenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Cursor="Hand">
-                    <Image Source="/UI.Desktop;component/Resources/bearbeiten.png" Stretch="None"/>
-                </Button>
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,145,10" Cursor="Hand" >
-                    <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
-                </Button>
+
             </Grid>
         </Grid>
 

@@ -1,12 +1,17 @@
 ﻿using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.TrainingCore;
+using Darts.Logic.Messages.BaseMessages;
+using Darts.Logic.Messages.TrainingMessages;
 using Darts.Logic.Models.TrainingModels;
 using Darts.Logic.UI.BaseViewModels;
+using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Darts.Logic.UI.TrainingViewModels
 {
@@ -17,6 +22,7 @@ namespace Darts.Logic.UI.TrainingViewModels
         {
             trainingService = new TrainingService();
             Title = "Übersicht aller Trainings";
+            BestleistungenCommand = new RelayCommand(() => ExecuteBestleistungenCommand());
             LoadData();
         }
 
@@ -24,7 +30,8 @@ namespace Darts.Logic.UI.TrainingViewModels
         protected override StammdatenTypes GetStammdatenTyp() => StammdatenTypes.spieler;
         protected override bool LoadDataBeimCreateAusfuehren => false;
 
-
+        public ICommand BestleistungenCommand { get; set; }
+        
         protected override void LoadData()
         {
             var Trainings = trainingService.LadeAlle();
@@ -43,5 +50,12 @@ namespace Darts.Logic.UI.TrainingViewModels
                 });
             });
         }
+
+
+        private void ExecuteBestleistungenCommand()
+        {
+            Messenger.Default.Send(new OpenBestleistungenVomTrainingMessage { ID = GetID()}, "TrainingUebersicht");
+        }
+
     }
 }

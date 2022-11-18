@@ -24,6 +24,9 @@ namespace Darts.Logic.UI
             OpenSpielerUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.SpielerUebersicht));
             OpenAktuellesTrainingCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AktuellesTraining));
             OpenTrainingUebersichtCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.TrainingUebersicht));
+            OpenAuswertungBestleistungAllTimeHundertAchtzigCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungAllTime));
+            OpenAuswertungBestleistungenJahreslisteCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungJahresliste));
+            OpenAuswertungBestleistungenMonatslisteCommand = new RelayCommand(() => ExecuteOpenViewCommand(ViewType.AuswertungBestleistungMonatsliste));
         }
 
 
@@ -31,6 +34,13 @@ namespace Darts.Logic.UI
         public ICommand OpenSpielerUebersichtCommand { get; private set; }
         public ICommand OpenAktuellesTrainingCommand { get; private set; }
         public ICommand OpenTrainingUebersichtCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungAllTimeHundertAchtzigCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungAllTimeHighscoreCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungAllTimeHighfinishCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungAllTimeBullfinishCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungAllTimeShortLegCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungenJahreslisteCommand { get; private set; }
+        public ICommand OpenAuswertungBestleistungenMonatslisteCommand { get; private set; }
 
         private void ExecuteOpenViewCommand(ViewType viewType)
         {

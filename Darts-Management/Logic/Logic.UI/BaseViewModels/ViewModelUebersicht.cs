@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace Darts.Logic.UI.BaseViewModels
 {
-    public class ViewModelUebersicht<T1, T2> : ViewModelBasis
+    public class ViewModelUebersicht<T1, T2> : ViewModelValidate
     {
         private T1 selectedItem;
         private ObservableCollection<T1> itemList;
@@ -53,7 +53,7 @@ namespace Darts.Logic.UI.BaseViewModels
             }
         }
 
-        public T1 SelectedItem
+        public virtual T1 SelectedItem
         {
             get => selectedItem;
             set

@@ -10,6 +10,9 @@ namespace Darts.Data.Types.BaseTypes
     {
         SpielerUebersicht,
         AktuellesTraining,
-        TrainingUebersicht
+        TrainingUebersicht,
+        AuswertungBestleistungAllTime,
+        AuswertungBestleistungJahresliste,
+        AuswertungBestleistungMonatsliste
     }
 }

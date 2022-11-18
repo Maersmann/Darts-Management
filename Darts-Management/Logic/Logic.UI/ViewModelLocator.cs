@@ -14,6 +14,7 @@
 
 using CommonServiceLocator;
 using Darts.Logic.UI.AuswahlViewModels;
+using Darts.Logic.UI.AuswertungenViewModels;
 using Darts.Logic.UI.KonfigurationViewModels;
 using Darts.Logic.UI.OptionenViewModels;
 using Darts.Logic.UI.SpielerViewModels;
@@ -62,7 +63,11 @@ namespace Darts.Logic.UI
         public BestleistungEintragenViewModel BestleistungEintragen => new BestleistungEintragenViewModel();
         public TrainingUebersichtViewModel TrainingUebersicht => new TrainingUebersichtViewModel();
         public InfoViewModel Info => new InfoViewModel();
-
+        public AuswertungBestleistungenAllTimeViewModel AuswertungBestleistungenAllTime => new AuswertungBestleistungenAllTimeViewModel();
+        public AuswertungBestleistungenJahreslisteViewModel AuswertungBestleistungenJahresliste => new AuswertungBestleistungenJahreslisteViewModel();
+        public AuswertungBestleistungenMonatslisteViewModel AuswertungBestleistungenMonatsliste => new AuswertungBestleistungenMonatslisteViewModel();
+        public TrainingBestleistungenUebersichtViewModel TrainingBestleistungenUebersicht => new TrainingBestleistungenUebersichtViewModel();
+        public SpielerBestleistungenUebersichtViewModel SpielerBestleistungenUebersicht => new SpielerBestleistungenUebersichtViewModel();
 
         public static void Cleanup()
         {

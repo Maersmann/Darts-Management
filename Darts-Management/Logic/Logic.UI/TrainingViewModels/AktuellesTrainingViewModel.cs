@@ -31,6 +31,7 @@ namespace Darts.Logic.UI.TrainingViewModels
             aktuellesTraining = new AktuellesTrainingModel();
             BeendeTrainingCommand = new RelayCommand(() => ExecuteBeendeTrainingCommand());
             TrageBestleistungEinCommand = new RelayCommand(() => ExecuteTrageBesteWerteEinCommand());
+            OpenAlleBestleistungenCommand = new RelayCommand(() => ExecuteOpenAlleBestleistungenCommand());
         }
 
         public async void CheckAktuellesTraining()
@@ -62,6 +63,7 @@ namespace Darts.Logic.UI.TrainingViewModels
         }
         public ICommand BeendeTrainingCommand { get; set; }
         public ICommand TrageBestleistungEinCommand { get; set; }
+        public ICommand OpenAlleBestleistungenCommand { get; set; }
 
         private async void TrainingStartenCommand()
         {
@@ -96,6 +98,11 @@ namespace Darts.Logic.UI.TrainingViewModels
         private void ExecuteTrageBesteWerteEinCommand()
         {
             Messenger.Default.Send(new OpenBestleistungMessage { SpielerID = SelectedItem.ID, SpielerTrainingID = SelectedItem.SpielerTrainingID }, "AktuellesTraining");
+        }
+
+        private void ExecuteOpenAlleBestleistungenCommand()
+        {
+            Messenger.Default.Send(new OpenBestleistungenVomTrainingMessage { ID =aktuellesTraining.TrainingID }, "AktuellesTraining");
         }
 
         protected override bool LoadDataBeimCreateAusfuehren => false;

@@ -43,15 +43,16 @@ namespace Darts.Logic.UI.SpielerViewModels
         #region Commands
         protected override void ExecuteSaveCommand()
         {
-            spielerService.Speichern(new Spieler
+            if (spielerService.IstNameSchonVorhanden(Data.Fullname))
             {
-                ID = Data.ID,
-                Name = Data.Name,
-                Vorname = Data.Vorname
-            });
-            name = Data.Vorname.Trim() + " " + Data.Name.Trim();
-            neuerEintragAngelegt = true;
-            Messenger.Default.Send(new StammdatenGespeichertMessage { Erfolgreich = true, Message = "Gespeichert" }, GetStammdatenTyp());
+                Messenger.Default.Send(new OpenBestaetigungViewMessage { Beschreibung = "Spieler ist schon vorhanden." + Environment.NewLine + "Soll er trotzdem angelegt werden?", Command = SaveSpieler }, GetStammdatenTyp());
+            }
+            else
+            {
+                SaveSpieler();
+            }
+            
+
         }
 
         #endregion
@@ -124,5 +125,21 @@ namespace Darts.Logic.UI.SpielerViewModels
         public bool NeuerEintragAngelegt() => neuerEintragAngelegt;
 
         public string Filter() => name;
+
+        private void SaveSpieler()
+        {
+            spielerService.Speichern(new Spieler
+            {
+                ID = Data.ID,
+                Name = Data.Name.Trim(),
+                Vorname = Data.Vorname.Trim(),
+            });
+            name = Data.Fullname;
+
+
+
+            neuerEintragAngelegt = true;
+            Messenger.Default.Send(new StammdatenGespeichertMessage { Erfolgreich = true, Message = "Gespeichert" }, GetStammdatenTyp());
+        }
     }
 }

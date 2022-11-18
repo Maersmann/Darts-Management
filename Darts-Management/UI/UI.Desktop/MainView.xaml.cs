@@ -2,26 +2,17 @@
 using Darts.Logic.Messages.BaseMessages;
 using Darts.Logic.UI.InterfaceViewModels;
 using GalaSoft.MvvmLight.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UI.Desktop.Spieler;
 using Vereinsverwaltung.UI.Desktop;
 using Vereinsverwaltung.UI.Desktop.Konfigruation;
 using UI.Desktop.BaseViews;
 using UI.Desktop.Training;
 using Darts.Logic.UI.TrainingViewModels;
+using System.Web.UI.WebControls;
+using UI.Desktop.Auswertung;
+using Darts.Logic.UI.AuswertungenViewModels;
+using Darts.Data.Types.AuswertungTypes;
 
 namespace Darts.UI.Desktop
 {
@@ -74,11 +65,11 @@ namespace Darts.UI.Desktop
                 case ViewType.AktuellesTraining:
                     if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AktuellesTrainingView)))
                     {
-                        var view = new AktuellesTrainingView();
-                            _ = Container.NavigationService.Navigate(view);
-                        if (view.DataContext is AktuellesTrainingViewModel model)
+                        var viewTraining = new AktuellesTrainingView();
+                            _ = Container.NavigationService.Navigate(viewTraining);
+                        if (viewTraining.DataContext is AktuellesTrainingViewModel trainingModel)
                         {
-                            model.CheckAktuellesTraining();
+                            trainingModel.CheckAktuellesTraining();
                         }
                     }
                     break;
@@ -88,9 +79,27 @@ namespace Darts.UI.Desktop
                         _ = Container.NavigationService.Navigate(new TrainingUebersichtView());
                     }
                     break;
-                default:
+                case ViewType.AuswertungBestleistungAllTime:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenAllTimeView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenAllTimeView());
+                    }
                     break;
 
+                case ViewType.AuswertungBestleistungJahresliste:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenJahreslisteView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenJahreslisteView());
+                    }
+                    break;
+                case ViewType.AuswertungBestleistungMonatsliste:
+                    if (Container.Content == null || !Container.Content.GetType().Name.Equals(nameof(AuswertungBestleistungenMonatslisteView)))
+                    {
+                        _ = Container.NavigationService.Navigate(new AuswertungBestleistungenMonatslisteView());
+                    }
+                    break;
+                default:
+                    break;               
             }
         }
 
@@ -127,7 +136,7 @@ namespace Darts.UI.Desktop
 
         private void ReceiceOpenLoginViewMessage()
         {
-            _ = new LoginView()
+            _ = new Vereinsverwaltung.UI.Desktop.LoginView()
             {
                 Owner = Application.Current.MainWindow
             }.ShowDialog();

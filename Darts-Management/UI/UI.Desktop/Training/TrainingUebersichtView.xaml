@@ -9,13 +9,13 @@
              d:DesignHeight="450" d:DesignWidth="400" MinWidth="650px"         
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
-             DataContext="{Binding TrainingUebersicht, Source={StaticResource Locator}}">
+             DataContext="{Binding TrainingUebersicht, Source={StaticResource Locator}}" Unloaded="UserControl_Unloaded">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25px"/>
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>
@@ -37,12 +37,20 @@
 
         <DataGrid Grid.Row="1" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Tag" Binding="{Binding Tag, StringFormat={}{0:dd.MM.yyyy}, ConverterCulture='de-DE'}" Width="auto" />
+                <DataGridTextColumn Header="Tag" Binding="{Binding Wochentag}" Width="auto" />
+                <DataGridTextColumn Header="Datum" Binding="{Binding Tag, StringFormat={}{0:dd.MM.yyyy}, ConverterCulture='de-DE'}" Width="auto" />
                 <DataGridTextColumn Header="Spieler" Binding="{Binding AnzahlSpieler}" Width="auto" />
                 <DataGridTextColumn Header="Highscore" Binding="{Binding AnzahlHighscore}" Width="auto" />
                 <DataGridTextColumn Header="Highfinish" Binding="{Binding AnzahlHighfinish}" Width="auto" />
                 <DataGridTextColumn Header="Short Leg" Binding="{Binding AnzahlShortLeg}" Width="auto" />
                 <DataGridTextColumn Header="Bullfinish" Binding="{Binding AnzahlBullFinish}" Width="auto" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Bestleistungen" Style="{DynamicResource MaterialDesignOutlinedButton}" Command="{Binding DataContext.BestleistungenCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

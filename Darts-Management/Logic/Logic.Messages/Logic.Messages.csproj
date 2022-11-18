@@ -57,7 +57,9 @@
     <Compile Include="BaseMessages\OpenViewMessage.cs" />
     <Compile Include="BaseMessages\StammdatenGespeichertMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpielerMessages\OpenBestleistungenVomSpielerMessage.cs" />
     <Compile Include="SpielerMessages\OpenBestwerteEintragenMessage.cs" />
+    <Compile Include="TrainingMessages\OpenBestleistungenVomTrainingMessage.cs" />
     <Compile Include="TrainingMessages\OpenBestleistungMessage.cs" />
   </ItemGroup>
   <ItemGroup>

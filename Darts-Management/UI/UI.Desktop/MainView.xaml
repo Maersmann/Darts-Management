@@ -45,7 +45,7 @@
                         <Fluent:BackstageTabItem Header="DB-Settings">
                             <optionen:DBSettingsView/>
                         </Fluent:BackstageTabItem>
-                        <Fluent:BackstageTabItem Header="Info" IsEnabled="{Binding MenuIsEnabled, Mode=OneWay}" >
+                        <Fluent:BackstageTabItem Header="Info">
                             <option:InfoView />
                         </Fluent:BackstageTabItem>
                         <Fluent:SeparatorTabItem/>
@@ -62,6 +62,14 @@
                 <Fluent:RibbonGroupBox Header="Training" >
                     <Fluent:Button Header="Übersicht" LargeIcon="/UI.Desktop;component/Resources/list-box.png"  Command="{Binding OpenTrainingUebersichtCommand}" Width="60" Foreground="White" />
                     <Fluent:Button Header="Aktuelles" LargeIcon="/UI.Desktop;component/Resources/playlist-play.png"  Command="{Binding OpenAktuellesTrainingCommand}" Width="60" Foreground="White" />
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem Header="Auswertungen"  ActiveTabBackground="{Binding Mode=OneWay, Source={StaticResource brusRibbonSelected}}" Foreground="White">
+                <Fluent:RibbonGroupBox Header="Besten Liste" >
+                    <Fluent:Button Header="All-Time" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box-multiple-outline.png"  Command="{Binding OpenAuswertungBestleistungAllTimeHundertAchtzigCommand}" Width="80" Foreground="White" />
+                    <Fluent:Button Header="Jahresliste" LargeIcon="/UI.Desktop;component/Resources/numeric-1-box.png"  Command="{Binding OpenAuswertungBestleistungenJahreslisteCommand}" Width="80" Foreground="White" />
+                    <Fluent:Button Header="Monatsliste" LargeIcon="/UI.Desktop;component/Resources/numeric-1-circle.png"  Command="{Binding OpenAuswertungBestleistungenMonatslisteCommand}" Width="80" Foreground="White" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>

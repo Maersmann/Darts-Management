@@ -40,6 +40,10 @@ namespace Darts.Logic.UI.AuswahlViewModels
                     Vorname = spieler.Vorname
                 });
             });
+            if (ItemList.Count > 0)
+            {
+                SelectedItem = ItemList.First();
+            }
         }
 
         protected override void LoadData(IList<int> vorhandeneIDs)
@@ -56,6 +60,10 @@ namespace Darts.Logic.UI.AuswahlViewModels
                     Vorname = spieler.Vorname
                 });
             });
+            if (ItemList.Count > 0)
+            {
+                SelectedItem = ItemList.First();
+            }
         }
 
         protected override StammdatenTypes GetStammdatenType() { return StammdatenTypes.spieler; }

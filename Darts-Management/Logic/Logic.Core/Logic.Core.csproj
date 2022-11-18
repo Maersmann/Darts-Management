@@ -120,6 +120,7 @@
     <Compile Include="..\..\_Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuswertungCore\AuswertungBestleistungService.cs" />
     <Compile Include="DatabaseAPI.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="Interfaces\IValidierung.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpielerCore\BestleistungService.cs" />
     <Compile Include="SpielerCore\DTO\SpielerDTO.cs" />
+    <Compile Include="SpielerCore\Exceptions\SpielerImTrainingVorhandenException.cs" />
     <Compile Include="SpielerCore\Exceptions\TrainingSpielerHatBestleistungException.cs" />
     <Compile Include="SpielerCore\SpielerService.cs" />
     <Compile Include="TrainingCore\DTO\TrainingUebersichtDTO.cs" />

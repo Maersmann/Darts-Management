@@ -17,7 +17,7 @@
             <RowDefinition Height="25px"/>
             <RowDefinition Height="45px" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="70px" />
+            <RowDefinition Height="0px" />
             <RowDefinition Height="45px" />
             <RowDefinition >
                 <RowDefinition.Style>
@@ -50,10 +50,14 @@
         <DataGrid Grid.Row="2" Margin="5"  ItemsSource="{Binding ItemList}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectionUnit="FullRow" >
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Art" Binding="{Binding BestleistungArt}" Width="auto" />
-                <DataGridTextColumn Header="Zahl" Binding="{Binding Value}" Width="auto" />
-                <DataGridTextColumn Header="Datum" Binding="{Binding GeworfenAm, StringFormat={}{0:HH:mm}, ConverterCulture='de-DE'}" Width="auto" />
+                <DataGridTextColumn Header="Score" Binding="{Binding Value}" Width="auto" />
+                <DataGridTextColumn Header="Uhrzeit" Binding="{Binding GeworfenAm, StringFormat={}{0:HH:mm}, ConverterCulture='de-DE'}" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button Grid.Row="2" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand" >
+            <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
+        </Button>
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -64,9 +68,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Grid.Row="1" DockPanel.Dock="Right" Style="{DynamicResource MaterialDesignFloatingActionButton}" Command="{Binding EntfernenCommand, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,25,10" Cursor="Hand" >
-                    <Image Source="/UI.Desktop;component/Resources/entfernen.png" Stretch="None"/>
-                </Button>
+
             </Grid>
         </Grid>
 

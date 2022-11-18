@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Vereinsverwaltung.UI.Desktop.Utils"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Bitte warten..." Height="150" Width="320"
+        Title="Bitte warten..."  Width="320" SizeToContent="Height"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         DataContext="{Binding Bestaetigung, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
@@ -21,7 +21,7 @@
             <Label HorizontalAlignment="Center" Width="auto" Content="{Binding Title, Mode=OneWay}"/>
         </materialDesign:Card>
 
-        <TextBlock Grid.Row="1" Text="{Binding Beschreibung}" Margin="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="{Binding Beschreibung}" Margin="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" TextAlignment="Center"/>
 
         <materialDesign:Card Grid.Row="2"  >
             <DockPanel  LastChildFill="False" >

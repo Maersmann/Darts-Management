@@ -44,6 +44,9 @@
     <Compile Include="..\..\_Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuswertungTypes\BestleistungAuswertungArt.cs" />
+    <Compile Include="AuswertungTypes\BestlisteAuswertungArt.cs" />
+    <Compile Include="BaseTypes\Monat.cs" />
     <Compile Include="BaseTypes\StammdatenTypes.cs" />
     <Compile Include="BaseTypes\State.cs" />
     <Compile Include="BaseTypes\ViewType.cs" />

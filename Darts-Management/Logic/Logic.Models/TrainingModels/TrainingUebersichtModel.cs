@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,7 @@ namespace Darts.Logic.Models.TrainingModels
         public int AnzahlHighfinish { get; set; }
         public int AnzahlShortLeg { get; set; }
         public int AnzahlBullFinish { get; set; }
+
+        public string Wochentag => Tag.ToString("dddd", new CultureInfo("de-DE"));
     }
 }
