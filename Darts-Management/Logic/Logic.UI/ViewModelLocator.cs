@@ -67,7 +67,7 @@ namespace Darts.Logic.UI
         public AuswertungBestleistungenJahreslisteViewModel AuswertungBestleistungenJahresliste => new AuswertungBestleistungenJahreslisteViewModel();
         public AuswertungBestleistungenMonatslisteViewModel AuswertungBestleistungenMonatsliste => new AuswertungBestleistungenMonatslisteViewModel();
         public TrainingBestleistungenUebersichtViewModel TrainingBestleistungenUebersicht => new TrainingBestleistungenUebersichtViewModel();
-
+        public SpielerBestleistungenUebersichtViewModel SpielerBestleistungenUebersicht => new SpielerBestleistungenUebersichtViewModel();
 
         public static void Cleanup()
         {

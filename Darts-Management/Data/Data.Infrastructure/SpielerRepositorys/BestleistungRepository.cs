@@ -1,5 +1,6 @@
 ﻿using Darts.Data.Infrastructure.Base;
 using Darts.Data.Model.SpielerEntitys;
+using Darts.Data.Model.TrainingEntitys;
 using Darts.Data.Types.SpielerTypes;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -54,6 +55,11 @@ namespace Darts.Data.Infrastructure.SpielerRepositorys
         public IList<Bestleistung> LadeAlleHundertAchtzigImJahrundMonat(int jahr, int monat)
         {
             return context.Bestleistungen.Where(w => w.Value.Equals(180) && w.Art.Equals(BestleistungArt.highscore) && w.GeworfenAm.Value.Year.Equals(jahr) && w.GeworfenAm.Value.Month.Equals(monat)).Include(i => i.Spieler).ToList();
+        }
+
+        public IList<Bestleistung> LadeAlleBySpielerID(int spielerID)
+        {
+            return context.Bestleistungen.Where(t => t.TrainingSpieler.SpielerID.Equals(spielerID)).Include(i => i.TrainingSpieler).ThenInclude(i => i.Training).ToList();
         }
     }
 }

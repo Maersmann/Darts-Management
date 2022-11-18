@@ -252,6 +252,9 @@
     <Compile Include="Spieler\BestleistungEintragenView.xaml.cs">
       <DependentUpon>BestleistungEintragenView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Spieler\SpielerBestleistungenUebersichtView.xaml.cs">
+      <DependentUpon>SpielerBestleistungenUebersichtView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Spieler\SpielerStammdatenView.xaml.cs">
       <DependentUpon>SpielerStammdatenView.xaml</DependentUpon>
     </Compile>
@@ -330,6 +333,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Spieler\BestleistungEintragenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spieler\SpielerBestleistungenUebersichtView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

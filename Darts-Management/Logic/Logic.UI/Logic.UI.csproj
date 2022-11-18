@@ -216,6 +216,7 @@
     <Compile Include="OptionenViewModels\InfoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpielerViewModels\BestleistungEintragenViewModel.cs" />
+    <Compile Include="SpielerViewModels\SpielerBestleistungenUebersichtViewModel.cs" />
     <Compile Include="SpielerViewModels\SpielerStammdatenViewModel.cs" />
     <Compile Include="SpielerViewModels\SpielerUebersichtViewModel.cs" />
     <Compile Include="StartingProgrammViewModel.cs" />

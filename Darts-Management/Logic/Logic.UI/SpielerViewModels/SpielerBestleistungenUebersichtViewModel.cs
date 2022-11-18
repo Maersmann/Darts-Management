@@ -1,6 +1,6 @@
 ﻿using Darts.Data.Types.BaseTypes;
 using Darts.Logic.Core.SpielerCore;
-using Darts.Logic.Core.TrainingCore;
+using Darts.Logic.Models.SpielerModels;
 using Darts.Logic.Models.TrainingModels;
 using Darts.Logic.UI.BaseViewModels;
 using System;
@@ -9,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Darts.Logic.UI.TrainingViewModels
+namespace Darts.Logic.UI.SpielerViewModels
 {
-    public class TrainingBestleistungenUebersichtViewModel : ViewModelUebersicht<TrainingBestleistungenUebersichtModel, StammdatenTypes>
+    public class SpielerBestleistungenUebersichtViewModel : ViewModelUebersicht<SpielerBestleistungenUebersichtModel, StammdatenTypes>
     {
         private readonly BestleistungService bestleistungService;
-        public TrainingBestleistungenUebersichtViewModel()
+        public SpielerBestleistungenUebersichtViewModel()
         {
             bestleistungService = new BestleistungService();
             Title = "Übersicht Bestleistungen";
@@ -24,14 +24,14 @@ namespace Darts.Logic.UI.TrainingViewModels
 
         public void LoadData(int id)
         {
-            var Bestleistungen = bestleistungService.LadeAlleFuerTraining(id);
+            var Bestleistungen = bestleistungService.LadeAlleFuerSpieler(id);
             Bestleistungen.OrderByDescending(o => o.GeworfenAm).ToList().ForEach(bestleistung =>
             {
-                ItemList.Add(new TrainingBestleistungenUebersichtModel
+                ItemList.Add(new SpielerBestleistungenUebersichtModel
                 {
                     BestleistungArt = bestleistung.Art,
                     GeworfenAm = bestleistung.GeworfenAm.Value,
-                    Name = bestleistung.Spieler.Vorname + " " + bestleistung.Spieler.Name,
+                    Training = bestleistung.TrainingSpieler.Training.Start.Value,
                     Value = bestleistung.Value.HasValue ? bestleistung.Value.ToString() : ""
                 });
             });

@@ -48,6 +48,8 @@ namespace Darts.Logic.Core.SpielerCore
 
         public IList<Bestleistung> LadeAlleFuerTrainingSpieler(int trainingSpielerID) => bestleistungRepository.LadeAlleByTrainingSpielerID(trainingSpielerID);
         public IList<Bestleistung> LadeAlleFuerTraining(int trainingID) => bestleistungRepository.LadeAlleByTrainingID(trainingID);
+        public IList<Bestleistung> LadeAlleFuerSpieler(int spielerID) => bestleistungRepository.LadeAlleBySpielerID(spielerID);
+
 
         internal IList<Bestleistung> LadeByAuswertungArt(BestleistungAuswertungArt bestleistungAuswertungArt)
         {
